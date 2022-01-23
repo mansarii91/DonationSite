@@ -2,6 +2,7 @@
 using DonationSite.Core.Entities.Report;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace DonationSite.DataAccess.EF
 {
@@ -14,9 +15,10 @@ namespace DonationSite.DataAccess.EF
             this.dataContext = dataContext;
         }
 
-        public IEnumerable<DonateReport> GetDonateReport(int siteId)
+        public async Task<IEnumerable<DonateReport>> GetDonateReport(int siteId)
         {
-            var res = (from p in dataContext.Site
+            var res = Task.Run( () => 
+                       (from p in dataContext.Site
                        join q in dataContext.Donate
                        on p.SiteID equals q.Sites.SiteID
                        where p.SiteID == siteId
@@ -24,10 +26,15 @@ namespace DonationSite.DataAccess.EF
                        {
                            SiteName = p.Name,
                            SiteURL = p.URL,
-                           Value = q.Value
+                           Value = q.Value,
+                           Donator = q.DonatorName
 
-                       }).ToList();
-            return res;
+                       }).ToList()
+            );
+            
+            await Task.WhenAll(res);
+            
+            return res.Result;
           
         }
 

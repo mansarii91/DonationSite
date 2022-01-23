@@ -11,9 +11,11 @@ namespace DonationSite.Core.Entities.Site
         public string Name { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "URL is required")]
         public string URL { get; set; }
-        public DateTime CreatedDateTime { get; set; } = DateTime.Now;
-        public IEnumerable<DonateDTO> Donates { get; set; }
+        public DateTime CreatedDateTime { get; set; }
+       // public IEnumerable<DonateDTO> Donates { get; set; }
     }
+
+    public class UpdateSiteDTO : SiteDTO { }
 
     public class SiteDTO : CreateSiteDTO
     {

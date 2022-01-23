@@ -2,20 +2,22 @@
 using DonationSite.Core.Contracts.Report;
 using DonationSite.Core.Entities.Report;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DonationSite.Core.Services
 {
     public class ReportService : IReportService
     {
-        private IUnitOfWork UnitOfWork { get; }
+        private readonly IUnitOfWork unitOfWork;
+
         public ReportService(IUnitOfWork unitOfWork)
         {
-            UnitOfWork = unitOfWork;
+            this.unitOfWork = unitOfWork;
         }
 
-        public IEnumerable<DonateReport> GetDonateReport(int siteId)
+        public async Task<IEnumerable<DonateReport>> GetDonateReport(int siteId)
         {
-            return UnitOfWork.ReportRepository.GetDonateReport(siteId);
+            return await unitOfWork.ReportRepository.GetDonateReport(siteId);
         }
     }
 }

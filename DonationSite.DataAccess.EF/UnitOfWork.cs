@@ -2,6 +2,7 @@
 using DonationSite.Core.Contracts.Donate;
 using DonationSite.Core.Contracts.Report;
 using DonationSite.Core.Contracts.Site;
+using System.Threading.Tasks;
 
 namespace DonationSite.DataAccess.EF
 {
@@ -20,14 +21,14 @@ namespace DonationSite.DataAccess.EF
             this.dataContext = dataContext;
         }
 
-        public bool Save()
+        public async Task<bool> Save()
         {
-            return dataContext.SaveChanges() > 0;
+            return await dataContext.SaveChangesAsync() > 0;
         }
 
-        public void Dispose()
+        public async Task Dispose()
         {
-            dataContext.Dispose();
+            await dataContext.DisposeAsync();
         }
 
     }

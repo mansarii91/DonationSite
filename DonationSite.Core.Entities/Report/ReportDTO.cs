@@ -8,6 +8,7 @@ namespace DonationSite.Core.Entities.Report
     {
         public string SiteName { get; set; }
         public string SiteURL { get; set; }
+        public string Donator { get; set; }
         public decimal Value { get; set; }
     }
 }

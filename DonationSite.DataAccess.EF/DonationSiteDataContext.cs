@@ -9,14 +9,20 @@ namespace DonationSite.DataAccess.EF
 
     public class DonationSiteDataContext : DbContext
     {
+        private readonly string conn;
+
         public DbSet<Site> Site { get; set; }
         public DbSet<Donate> Donate { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public DonationSiteDataContext(DbContextOptions<DonationSiteDataContext> optionsBuilder) :
+            base(optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=.;initial catalog=DonationSite;integrated security=true");
-
+            //optionsBuilder.UseSqlServer(conn);
         }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

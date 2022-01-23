@@ -2,10 +2,11 @@
 using DonationSite.Core.Entities.Site;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace DonationSite.DataAccess.EF
 {
-    public class SiteRepository: ISiteRepository
+    public class SiteRepository : ISiteRepository
     {
         private readonly DonationSiteDataContext dataContext;
 
@@ -14,34 +15,39 @@ namespace DonationSite.DataAccess.EF
             this.dataContext = dataContext;
         }
 
-        public bool Add(Site model)
+        public async Task<bool> Add(Site model)
         {
             dataContext.Add(model);
-            return dataContext.SaveChanges() > 0;
+            return await dataContext.SaveChangesAsync() > 0;
         }
 
-        public bool Delete(int siteId)
+        public async Task<bool> Delete(int siteId)
         {
-            var data= dataContext.Site.Find(siteId);
+            var data = await dataContext.Site.FindAsync(siteId);
             dataContext.Site.Remove(data);
-            return dataContext.SaveChanges() > 0;
+            return await dataContext.SaveChangesAsync() > 0;
         }
 
-        public IEnumerable<Site> GetAllList()
+        public async Task<IEnumerable<Site>> GetAllList()
         {
-            return dataContext.Site.ToList();
+            var data = Task.Run(() =>
+                dataContext.Site.ToList()
+            );
+
+            await Task.WhenAll(data);
+
+            return data.Result;
         }
 
-        public Site GetById(int siteId)
+        public async Task<Site> GetById(int siteId)
         {
-            var data = dataContext.Site.Find(siteId);
-            return data;
+            return await dataContext.Site.FindAsync(siteId);
         }
 
-        public bool Update(Site model)
+        public async Task<bool> Update(Site model)
         {
             dataContext.Site.Update(model);
-            return dataContext.SaveChanges() > 0;
+            return await dataContext.SaveChangesAsync() > 0;
         }
     }
 }

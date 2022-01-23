@@ -4,20 +4,22 @@ using DonationSite.Core.Entities.Donate;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DonationSite.Core.Services
 {
     public class DonateService : IDonateService
     {
-        private IUnitOfWork UnitOfWork { get; }
+        private readonly IUnitOfWork unitOfWork;
+
         public DonateService(IUnitOfWork unitOfWork)
         {
-            UnitOfWork = unitOfWork;
+            this.unitOfWork = unitOfWork;
         }
 
-        public bool SubmitDonate(Donate model)
+        public async Task<bool> SubmitDonate(Donate model)
         {
-            return UnitOfWork.DonateRepository.SubmitDonate(model);
+            return await unitOfWork.DonateRepository.SubmitDonate(model);
         }
     }
 }

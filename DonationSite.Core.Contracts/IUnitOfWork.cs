@@ -1,6 +1,7 @@
 ﻿using DonationSite.Core.Contracts.Donate;
 using DonationSite.Core.Contracts.Report;
 using DonationSite.Core.Contracts.Site;
+using System.Threading.Tasks;
 
 namespace DonationSite.Core.Contracts
 {
@@ -10,8 +11,8 @@ namespace DonationSite.Core.Contracts
         public ISiteRepository SiteRepository { get; }
         public IReportRepository ReportRepository { get; }
 
-        bool Save();
+        Task<bool> Save();
 
-        void Dispose();
+        Task Dispose();
     }
 }

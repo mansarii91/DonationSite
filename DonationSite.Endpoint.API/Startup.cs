@@ -1,16 +1,12 @@
+using DonationSite.Core.Contracts;
+using DonationSite.DataAccess.EF;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DonationSite.Endpoint.API
 {
@@ -26,6 +22,15 @@ namespace DonationSite.Endpoint.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region Dependencies
+            
+            services.AddDbContext<DonationSiteDataContext>(option =>
+            option.UseSqlServer(Configuration.GetConnectionString("sqlConnection")));
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddAutoMapper(typeof(AutoMapperConfig));
+
+            #endregion
+
             services.AddCors(o =>
             {
                 o.AddPolicy("CorsAllowAll", builder => builder.AllowAnyOrigin()
@@ -49,7 +54,6 @@ namespace DonationSite.Endpoint.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "DonationSite.Endpoint.API v1"));
             }
-
             app.UseHttpsRedirection();
             app.UseCors("CorsAllowAll");
             app.UseRouting();
@@ -60,6 +64,7 @@ namespace DonationSite.Endpoint.API
             {
                 endpoints.MapControllers();
             });
+
         }
     }
 }

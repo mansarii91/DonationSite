@@ -3,41 +3,42 @@ using DonationSite.Core.Contracts.Site;
 using DonationSite.Core.Entities.Site;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DonationSite.Core.Services
 {
     public class SiteService : ISiteService
     {
-        private  IUnitOfWork UnitOfWork { get; }
+        private readonly IUnitOfWork unitOfWork;
+
         public SiteService(IUnitOfWork unitOfWork)
         {
-            UnitOfWork = unitOfWork;
+            this.unitOfWork = unitOfWork;
         }
 
-        public bool Add(Site model)
+        public async Task<bool> Add(Site model)
         {
-            UnitOfWork.SiteRepository.Add(model);
-            return UnitOfWork.Save();
+            return await unitOfWork.SiteRepository.Add(model);
         }
 
-        public Site GetById(int siteId)
+        public async Task<Site> GetById(int siteId)
         {
-           return UnitOfWork.SiteRepository.GetById(siteId);
+           return await unitOfWork.SiteRepository.GetById(siteId);
         }
 
-        public IEnumerable<Site> GetAllList()
+        public async Task<IEnumerable<Site>> GetAllList()
         {
-            return UnitOfWork.SiteRepository.GetAllList();
+            return await unitOfWork.SiteRepository.GetAllList();
         }
 
-        public bool Delete(int siteId)
+        public async Task<bool> Delete(int siteId)
         {
-            return UnitOfWork.SiteRepository.Delete(siteId);
+            return await unitOfWork.SiteRepository.Delete(siteId);
         }
 
-        public bool Update(Site model)
+        public async Task<bool> Update(Site model)
         {
-            return UnitOfWork.SiteRepository.Update(model);
+            return await unitOfWork.SiteRepository.Update(model);
         }
     }
 }

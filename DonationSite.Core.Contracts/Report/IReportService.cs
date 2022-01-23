@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DonationSite.Core.Contracts.Report
 {
@@ -10,6 +11,6 @@ namespace DonationSite.Core.Contracts.Report
     /// </summary>
     public interface IReportService
     {
-        IEnumerable<Entities.Report.DonateReport> GetDonateReport(int siteId);
+       Task<IEnumerable<Entities.Report.DonateReport>> GetDonateReport(int siteId);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using DonationSite.Core.Contracts.Donate;
 using DonationSite.Core.Entities.Donate;
+using System.Threading.Tasks;
 
 namespace DonationSite.DataAccess.EF
 {
@@ -12,10 +13,10 @@ namespace DonationSite.DataAccess.EF
             this.dataContext = dataContext;
         }
 
-        public bool SubmitDonate(Donate model)
+        public async Task<bool> SubmitDonate(Donate model)
         {
-            dataContext.Donate.Add(model);
-            return dataContext.SaveChanges() > 0;
+            await dataContext.Donate.AddAsync(model);
+            return await dataContext.SaveChangesAsync() > 0;
         }
     }
 }
