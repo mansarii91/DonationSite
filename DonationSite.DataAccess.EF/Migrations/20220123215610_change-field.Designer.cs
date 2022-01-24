@@ -4,14 +4,16 @@ using DonationSite.DataAccess.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DonationSite.DataAccess.EF.Migrations
 {
     [DbContext(typeof(DonationSiteDataContext))]
-    partial class DonationSiteDataContextModelSnapshot : ModelSnapshot
+    [Migration("20220123215610_change-field")]
+    partial class changefield
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,7 +55,7 @@ namespace DonationSite.DataAccess.EF.Migrations
                     b.Property<DateTime>("CreatedDateTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 1, 24, 1, 33, 38, 716, DateTimeKind.Local).AddTicks(9970));
+                        .HasDefaultValue(new DateTime(2022, 1, 24, 1, 26, 9, 682, DateTimeKind.Local).AddTicks(7572));
 
                     b.Property<string>("Name")
                         .IsRequired()

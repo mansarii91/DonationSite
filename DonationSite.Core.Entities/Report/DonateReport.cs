@@ -11,4 +11,8 @@ namespace DonationSite.Core.Entities.Report
         public string Donator { get; set; }
         public decimal Value { get; set; }
     }
+
+    public class DonateReportDTO: DonateReport { }
+
+
 }

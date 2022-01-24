@@ -14,6 +14,7 @@ namespace DonationSite.Endpoint.API
             CreateMap<Donate, DonateDTO>().ReverseMap();
             CreateMap<Donate, CreateDonateDTO>().ReverseMap();
             CreateMap<DonateReport, DonateReportDTO>().ReverseMap();
+            CreateMap<DonateSite, DonateSiteDTO>().ReverseMap();
 
         }
     }

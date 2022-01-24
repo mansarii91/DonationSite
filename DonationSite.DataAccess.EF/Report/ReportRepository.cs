@@ -15,12 +15,12 @@ namespace DonationSite.DataAccess.EF
             this.dataContext = dataContext;
         }
 
-        public async Task<IEnumerable<DonateReport>> GetDonateReport(int siteId)
+        public async Task<IEnumerable<DonateReport>> GetDonatioSiteReport(int siteId, int take, int skip)
         {
-            var res = Task.Run( () => 
-                       (from p in dataContext.Site
+            var res = Task.Run(() =>
+                      (from p in dataContext.Site
                        join q in dataContext.Donate
-                       on p.SiteID equals q.Sites.SiteID
+                        on p.SiteID equals q.Site.SiteID
                        where p.SiteID == siteId
                        select new DonateReport
                        {
@@ -29,13 +29,48 @@ namespace DonationSite.DataAccess.EF
                            Value = q.Value,
                            Donator = q.DonatorName
 
-                       }).ToList()
+                       })
+                       .Skip(skip)
+                       .Take(take)
+                       .ToList()
+
             );
-            
+
             await Task.WhenAll(res);
-            
+
             return res.Result;
-          
+
+        }
+
+        public async Task<IEnumerable<DonateSite>> GetDonationReport(int take, int skip)
+        {
+            var data = Task.Run(() => (from p in dataContext.Donate
+                                       join q in dataContext.Site
+                                       on p.FKSiteID equals q.SiteID
+                                       select new
+                                       {
+                                           SiteName = q.Name,
+                                           SiteURL = q.URL,
+                                           Value = p.Value,
+                                           FkSiteID = p.FKSiteID
+                                       })
+                                       .Skip(skip)
+                                       .Take(take)
+                                       .ToList()
+                                       .GroupBy(a => a.FkSiteID)
+                                       .Select(a => new DonateSite
+                                       {
+                                           SiteName = a.FirstOrDefault().SiteName,
+                                           SiteURL = a.FirstOrDefault().SiteURL,
+                                           TotalDonation = a.Sum(a => a.Value)
+                                       })
+                                       .OrderBy(a=>a.TotalDonation)
+                                       .ToList()
+
+            );
+
+            await Task.WhenAll(data);
+            return data.Result;
         }
 
     }

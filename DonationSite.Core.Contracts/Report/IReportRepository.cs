@@ -11,6 +11,17 @@ namespace DonationSite.Core.Contracts.Report
     /// </summary>
     public interface IReportRepository
     {
-        Task<IEnumerable<Entities.Report.DonateReport>> GetDonateReport(int siteId);
+        /// <summary>
+        /// view all donation for a site 
+        /// </summary>
+        /// <param name="siteId"></param>
+        /// <returns></returns>
+        Task<IEnumerable<Entities.Report.DonateReport>> GetDonatioSiteReport(int siteId, int take, int skip);
+        /// <summary>
+        /// view each site with cumulative donations
+        /// </summary>
+        /// <param name="siteId"></param>
+        /// <returns></returns>
+        Task<IEnumerable<Entities.Report.DonateSite>> GetDonationReport(int take,int skip);
     }
 }

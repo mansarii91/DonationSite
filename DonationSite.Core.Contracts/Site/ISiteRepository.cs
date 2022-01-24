@@ -7,7 +7,7 @@ namespace DonationSite.Core.Contracts.Site
     {
         Task<bool> Add(Entities.Site.Site model);
         Task<Entities.Site.Site> GetById(int siteId);
-        Task<IEnumerable<Entities.Site.Site>> GetAllList();
+        Task<IEnumerable<Entities.Site.Site>> GetAllList(int take, int skip);
         Task<bool> Delete(int siteId);
         Task<bool> Update(Entities.Site.Site model);
     }

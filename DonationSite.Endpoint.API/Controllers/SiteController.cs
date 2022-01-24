@@ -27,46 +27,46 @@ namespace DonationSite.Endpoint.API.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet]
+        [HttpGet("{take:int}/{skip:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)] // for swagger documentation
         [ProducesResponseType(StatusCodes.Status500InternalServerError)] // for swagger documentation
-        public async Task<IActionResult> GetAllList()
+        public async Task<IActionResult> GetAllSiteList(int take, int skip)
         {
             try
             {
-                var allList = await _unitOfWork.SiteRepository.GetAllList();
+                var allList = await _unitOfWork.SiteRepository.GetAllList(take,skip);
                 var result = _mapper.Map<List<SiteDTO>>(allList);
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Something went wrong in the {nameof(GetAllList)}");
-                return StatusCode(500);
+                _logger.LogError(ex, $"Something went wrong in the {nameof(GetAllSiteList)}");
+                return StatusCode(500, "Internal Server Error. Please try again later");
             }
         }
 
         [HttpGet("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetSiteById(int id)
         {
             try
             {
-                var data = _unitOfWork.SiteRepository.GetById(id);
+                var data = await _unitOfWork.SiteRepository.GetById(id);
                 var result = _mapper.Map<SiteDTO>(data);
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Something went wrong in the {nameof(GetById)}");
-                return StatusCode(500);
+                _logger.LogError(ex, $"Something went wrong in the {nameof(GetSiteById)}");
+                return StatusCode(500, "Internal Server Error. Please try again later");
             }
         }
 
         [HttpDelete("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> DeleteSite(int id)
         {
             try
             {
@@ -75,7 +75,7 @@ namespace DonationSite.Endpoint.API.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Something went wrong in the {nameof(Delete)}");
+                _logger.LogError(ex, $"Something went wrong in the {nameof(DeleteSite)}");
                 return StatusCode(500, "Internal Server Error. Please try again later");
             }
         }
@@ -84,13 +84,13 @@ namespace DonationSite.Endpoint.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Add([FromBody] CreateSiteDTO model)
+        public async Task<IActionResult> AddSite([FromBody] CreateSiteDTO model)
         {
             try
             {
                 if (!ModelState.IsValid)
                 {
-                    _logger.LogError($"Invalid POST attempt in {nameof(Add)}");
+                    _logger.LogError($"Invalid POST attempt in {nameof(AddSite)}");
                     return BadRequest(ModelState);
                 }
 
@@ -99,7 +99,7 @@ namespace DonationSite.Endpoint.API.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Something went wrong in the {nameof(Add)}");
+                _logger.LogError(ex, $"Something went wrong in the {nameof(AddSite)}");
                 return StatusCode(500, "Internal Server Error. Please try again later");
             }
         }
@@ -107,13 +107,13 @@ namespace DonationSite.Endpoint.API.Controllers
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Update([FromBody] UpdateSiteDTO model)
+        public async Task<IActionResult> UpdateSite([FromBody] UpdateSiteDTO model)
         {
             try
             {
-                if (!ModelState.IsValid)
+                if (!ModelState.IsValid || model.SiteID < 1)
                 {
-                    _logger.LogError($"Invalid Update attempt in {nameof(Update)}");
+                    _logger.LogError($"Invalid Update attempt in {nameof(UpdateSite)}");
                     return BadRequest(ModelState);
                 }
 
@@ -122,7 +122,7 @@ namespace DonationSite.Endpoint.API.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Something went wrong in the {nameof(Update)}");
+                _logger.LogError(ex, $"Something went wrong in the {nameof(UpdateSite)}");
                 return StatusCode(500, "Internal Server Error. Please try again later");
             }
         }

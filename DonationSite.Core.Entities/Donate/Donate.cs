@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DonationSite.Core.Entities.Donate
 {
@@ -8,8 +9,9 @@ namespace DonationSite.Core.Entities.Donate
         [Required]
         public string DonatorName { get; set; }
         public decimal Value { get; set; }
-
-        public Site.Site Sites { get; set; }
+        [ForeignKey(nameof(Site))]
+        public int FKSiteID { get; set; }
+        public Site.Site Site { get; set; }
 
     }
 }

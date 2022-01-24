@@ -28,10 +28,13 @@ namespace DonationSite.DataAccess.EF
             return await dataContext.SaveChangesAsync() > 0;
         }
 
-        public async Task<IEnumerable<Site>> GetAllList()
+        public async Task<IEnumerable<Site>> GetAllList(int take, int skip)
         {
             var data = Task.Run(() =>
-                dataContext.Site.ToList()
+                dataContext.Site
+                .Skip(skip)
+                .Take(take)
+                .ToList()
             );
 
             await Task.WhenAll(data);

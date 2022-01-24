@@ -15,9 +15,15 @@ namespace DonationSite.Core.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public async Task<IEnumerable<DonateReport>> GetDonateReport(int siteId)
+        public async Task<IEnumerable<DonateReport>> GetDonationSiteReport(int siteId, int take, int skip)
         {
-            return await unitOfWork.ReportRepository.GetDonateReport(siteId);
+            return await unitOfWork.ReportRepository.GetDonatioSiteReport(siteId, take, skip);
+        }
+
+        public async Task<IEnumerable<DonateSite>> GetDonationReport(int take, int skip)
+        {
+            return await unitOfWork.ReportRepository.GetDonationReport(take, skip);
+
         }
     }
 }

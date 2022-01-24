@@ -23,12 +23,12 @@ namespace DonationSite.Core.Services
 
         public async Task<Site> GetById(int siteId)
         {
-           return await unitOfWork.SiteRepository.GetById(siteId);
+            return await unitOfWork.SiteRepository.GetById(siteId);
         }
 
-        public async Task<IEnumerable<Site>> GetAllList()
+        public async Task<IEnumerable<Site>> GetAllList(int take, int skip)
         {
-            return await unitOfWork.SiteRepository.GetAllList();
+            return await unitOfWork.SiteRepository.GetAllList(take, skip);
         }
 
         public async Task<bool> Delete(int siteId)
