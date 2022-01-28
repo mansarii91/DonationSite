@@ -1,4 +1,13 @@
-<button type="button" class="btn btn-primary">Add New Site</button>
+<div *ngIf="isAddSuccess">
+  <div class="alert alert-success alert-dismissible">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Success!</strong> Your site submitted.
+  </div>
+</div>
+
+<a routerLink="/addSite" class="btn btn-primary">
+  <span> Add New Site </span>
+</a>
 
 <table class="table table-striped">
   <thead>
@@ -6,6 +15,7 @@
       <th>Site Name</th>
       <th>Site URL</th>
       <th>Created Time</th>
+      <th>Functions</th>
     </tr>
   </thead>
   <tbody>
@@ -13,6 +23,11 @@
       <td>{{ item.name }}</td>
       <td>{{ item.url }}</td>
       <td>john@example.com</td>
+      <td>
+        <a routerLink="/updateSite" class="btn">
+          <i class="fa fa-edit"></i>
+        </a>
+      </td>
     </tr>
   </tbody>
 </table>

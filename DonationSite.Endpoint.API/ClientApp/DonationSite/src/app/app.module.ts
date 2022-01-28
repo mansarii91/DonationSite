@@ -12,6 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddSiteComponent } from './add-site/add-site.component';
 import { UpdateSiteComponent } from './update-site/update-site.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,13 @@ import { UpdateSiteComponent } from './update-site/update-site.component';
     AddSiteComponent,
     UpdateSiteComponent,
   ],
-  imports: [RouterModule, AppRoutingModule, BrowserModule, HttpClientModule],
+  imports: [
+    RouterModule,
+    AppRoutingModule,
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

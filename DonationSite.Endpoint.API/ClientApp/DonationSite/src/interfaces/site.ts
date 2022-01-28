@@ -10,8 +10,6 @@ export interface UpdateSite extends CreateSite {
   url: string;
 }
 
-export interface Site extends UpdateSite {}
-
-
-
-
+export interface Site extends CreateSite {
+  siteID: number;
+}
