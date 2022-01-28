@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
 import { DonateComponent } from './donate/donate.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddSiteComponent } from './add-site/add-site.component';
+import { UpdateSiteComponent } from './update-site/update-site.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReportSiteDonationComponent,
     DonateComponent,
     NavbarComponent,
+    AddSiteComponent,
+    UpdateSiteComponent,
   ],
   imports: [RouterModule, AppRoutingModule, BrowserModule, HttpClientModule],
   providers: [],

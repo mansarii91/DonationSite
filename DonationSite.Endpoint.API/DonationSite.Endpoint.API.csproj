@@ -12,6 +12,39 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="ClientApp\DonationSite\angular.json" />
+    <Content Include="ClientApp\DonationSite\package-lock.json" />
+    <Content Include="ClientApp\DonationSite\package.json" />
+    <Content Include="ClientApp\DonationSite\src\app\app.component.css" />
+    <Content Include="ClientApp\DonationSite\src\app\app.component.html" />
+    <Content Include="ClientApp\DonationSite\src\app\donate\donate.component.css" />
+    <Content Include="ClientApp\DonationSite\src\app\donate\donate.component.html" />
+    <Content Include="ClientApp\DonationSite\src\app\navbar\navbar.component.css" />
+    <Content Include="ClientApp\DonationSite\src\app\navbar\navbar.component.html" />
+    <Content Include="ClientApp\DonationSite\src\app\report-site-donation\report-site-donation.component.css" />
+    <Content Include="ClientApp\DonationSite\src\app\report-site-donation\report-site-donation.component.html" />
+    <Content Include="ClientApp\DonationSite\src\app\report-site\report-site.component.css" />
+    <Content Include="ClientApp\DonationSite\src\app\report-site\report-site.component.html" />
+    <Content Include="ClientApp\DonationSite\src\app\site\site.component.css" />
+    <Content Include="ClientApp\DonationSite\src\app\site\site.component.html" />
+    <Content Include="ClientApp\DonationSite\src\favicon.ico" />
+    <Content Include="ClientApp\DonationSite\src\index.html" />
+    <Content Include="ClientApp\DonationSite\src\styles.css" />
+    <Content Include="ClientApp\DonationSite\tsconfig.app.json" />
+    <Content Include="ClientApp\DonationSite\tsconfig.json" />
+    <Content Include="ClientApp\DonationSite\tsconfig.spec.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="ClientApp\DonationSite\.browserslistrc" />
+    <None Include="ClientApp\DonationSite\.editorconfig" />
+    <None Include="ClientApp\DonationSite\.gitignore" />
+    <None Include="ClientApp\DonationSite\karma.conf.js" />
+    <None Include="ClientApp\DonationSite\README.md" />
+    <None Include="ClientApp\DonationSite\src\assets\.gitkeep" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Mapster" Version="7.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.13">
@@ -24,6 +57,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.5.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Serilog.AspNetCore" Version="4.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
@@ -31,6 +68,34 @@
   <ItemGroup>
     <ProjectReference Include="..\DonationSite.Core.Contracts\DonationSite.Core.Contracts.csproj" />
     <ProjectReference Include="..\DonationSite.DataAccess.EF\DonationSite.DataAccess.EF.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\app\app-routing.module.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\app\app.component.spec.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\app\app.component.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\app\app.module.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\app\donate\donate.component.spec.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\app\donate\donate.component.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\app\navbar\navbar.component.spec.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\app\navbar\navbar.component.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\app\report-site-donation\report-site-donation.component.spec.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\app\report-site-donation\report-site-donation.component.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\app\report-site\report-site.component.spec.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\app\report-site\report-site.component.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\app\site\site.component.spec.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\app\site\site.component.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\environments\environment.prod.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\environments\environment.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\global_const.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\interfaces\donate.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\interfaces\reportDonator.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\interfaces\reportSite.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\interfaces\site.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\main.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\polyfills.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\services\site.service.ts" />
+    <TypeScriptCompile Include="ClientApp\DonationSite\src\test.ts" />
   </ItemGroup>
 
 </Project>
