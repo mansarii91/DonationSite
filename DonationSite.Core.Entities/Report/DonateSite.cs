@@ -14,5 +14,8 @@ namespace DonationSite.Core.Entities.Report
 
     }
 
-    public class DonateSiteDTO : DonateSite { }
+    public class DonateSiteDTO : DonateSite {
+        public int SiteID { get; set; }
+
+    }
 }

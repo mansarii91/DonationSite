@@ -42,7 +42,7 @@ namespace DonationSite.DataAccess.EF
 
         }
 
-        public async Task<IEnumerable<DonateSite>> GetDonationReport(int take, int skip)
+        public async Task<IEnumerable<DonateSiteDTO>> GetDonationReport(int take, int skip)
         {
             var data = Task.Run(() => (from p in dataContext.Donate
                                        join q in dataContext.Site
@@ -58,11 +58,12 @@ namespace DonationSite.DataAccess.EF
                                        .Take(take)
                                        .ToList()
                                        .GroupBy(a => a.FkSiteID)
-                                       .Select(a => new DonateSite
+                                       .Select(a => new DonateSiteDTO
                                        {
                                            SiteName = a.FirstOrDefault().SiteName,
                                            SiteURL = a.FirstOrDefault().SiteURL,
-                                           TotalDonation = a.Sum(a => a.Value)
+                                           TotalDonation = a.Sum(a => a.Value),
+                                           SiteID = a.FirstOrDefault().FkSiteID
                                        })
                                        .OrderBy(a=>a.TotalDonation)
                                        .ToList()

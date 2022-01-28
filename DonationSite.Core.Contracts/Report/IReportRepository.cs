@@ -22,6 +22,6 @@ namespace DonationSite.Core.Contracts.Report
         /// </summary>
         /// <param name="siteId"></param>
         /// <returns></returns>
-        Task<IEnumerable<Entities.Report.DonateSite>> GetDonationReport(int take,int skip);
+        Task<IEnumerable<Entities.Report.DonateSiteDTO>> GetDonationReport(int take,int skip);
     }
 }

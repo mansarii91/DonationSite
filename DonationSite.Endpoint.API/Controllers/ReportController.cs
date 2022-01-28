@@ -52,8 +52,7 @@ namespace DonationSite.Endpoint.API.Controllers
             try
             {
                 var reportData = await _unitOfWork.ReportRepository.GetDonationReport(take,skip);
-                var result = _mapper.Map<List<DonateSiteDTO>>(reportData);
-                return Ok(result);
+                return Ok(reportData);
             }
             catch (Exception ex)
             {

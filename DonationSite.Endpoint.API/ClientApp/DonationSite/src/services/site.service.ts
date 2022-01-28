@@ -8,7 +8,7 @@ import * as Interfaces from '../interfaces/site';
   providedIn: 'root',
 })
 export class SiteService {
-  public mainUrl: string;
+  private mainUrl: string;
   public constructor(private http: HttpClient) {
     this.mainUrl = GlobalConst.MAIN_URL_Site;
   }
