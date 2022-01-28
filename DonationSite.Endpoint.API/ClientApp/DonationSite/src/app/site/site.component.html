@@ -22,7 +22,7 @@
     <tr *ngFor="let item of siteList">
       <td>{{ item.name }}</td>
       <td>{{ item.url }}</td>
-      <td>john@example.com</td>
+      <td>{{ item.createdDateTime | date: "short" }}</td>
       <td>
         <a routerLink="/updateSite" class="btn">
           <i class="fa fa-edit"></i>
@@ -31,3 +31,9 @@
     </tr>
   </tbody>
 </table>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

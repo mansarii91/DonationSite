@@ -4,4 +4,5 @@ export class CreateSite implements Interfaces.CreateSite {
   public createdDateTime: Date = new Date();
   public name: string = '';
   public url: string = '';
+  public siteID: number = 0;
 }
