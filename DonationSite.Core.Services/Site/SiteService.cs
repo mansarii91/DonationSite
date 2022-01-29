@@ -40,5 +40,10 @@ namespace DonationSite.Core.Services
         {
             return await unitOfWork.SiteRepository.Update(model);
         }
+
+        public long GetTotalCount()
+        {
+           return unitOfWork.SiteRepository.GetTotalCount();
+        }
     }
 }

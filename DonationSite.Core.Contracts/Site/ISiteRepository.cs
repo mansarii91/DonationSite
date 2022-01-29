@@ -10,5 +10,6 @@ namespace DonationSite.Core.Contracts.Site
         Task<IEnumerable<Entities.Site.Site>> GetAllList(int take, int skip);
         Task<bool> Delete(int siteId);
         Task<bool> Update(Entities.Site.Site model);
+        long GetTotalCount();
     }
 }

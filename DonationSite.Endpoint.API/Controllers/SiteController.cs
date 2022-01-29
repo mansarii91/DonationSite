@@ -27,6 +27,23 @@ namespace DonationSite.Endpoint.API.Controllers
             _mapper = mapper;
         }
 
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult GetTotalCount()
+        {
+            try
+            {
+                var data = _unitOfWork.SiteRepository.GetTotalCount();
+                return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Something went wrong in the {nameof(GetSiteById)}");
+                return StatusCode(500, "Internal Server Error. Please try again later");
+            }
+        }
+
         [HttpGet("{take:int}/{skip:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)] // for swagger documentation
         [ProducesResponseType(StatusCodes.Status500InternalServerError)] // for swagger documentation

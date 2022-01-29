@@ -47,6 +47,11 @@ namespace DonationSite.DataAccess.EF
             return await dataContext.Site.FindAsync(siteId);
         }
 
+        public long GetTotalCount()
+        {
+            return dataContext.Site.Count();
+        }
+
         public async Task<bool> Update(Site model)
         {
             dataContext.Site.Update(model);
