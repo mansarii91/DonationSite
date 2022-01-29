@@ -20,9 +20,9 @@ export class SiteService {
     return this.http.get<Interfaces.Site[]>(url).pipe();
   }
 
-  public getSiteById(id: number): Observable<Interfaces.Site[]> {
+  public getSiteById(id: number): Observable<Interfaces.UpdateSite> {
     let url = `${this.mainUrl}/${id}`;
-    return this.http.get<Interfaces.Site[]>(url).pipe();
+    return this.http.get<Interfaces.UpdateSite>(url).pipe();
   }
 
   public deleteSite(id: number): Observable<boolean> {
@@ -42,7 +42,7 @@ export class SiteService {
     let url = `${this.mainUrl}`;
 
     return this.http
-      .post<boolean>(url, JSON.stringify(model), GlobalConst.HTTP_OPTION)
+      .put<boolean>(url, JSON.stringify(model), GlobalConst.HTTP_OPTION)
       .pipe();
   }
 }

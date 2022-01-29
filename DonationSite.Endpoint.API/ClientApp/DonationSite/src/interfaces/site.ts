@@ -4,12 +4,12 @@ export interface CreateSite {
   url: string;
 }
 
-export interface UpdateSite extends CreateSite {
-  createdDateTime: Date;
-  name: string;
-  url: string;
+export interface Site extends CreateSite {
+  siteID: number;
 }
 
-export interface Site extends CreateSite {
+export interface UpdateSite {
+  name: string;
+  url: string;
   siteID: number;
 }

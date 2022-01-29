@@ -31,7 +31,7 @@
       <td>{{ item.url }}</td>
       <td>{{ item.createdDateTime | date: "short" }}</td>
       <td>
-        <a class="btn btn-primary" (click)="deleteSite(item.siteID)">
+        <a class="btn btn-primary" [routerLink]="['/updateSite', item.siteID]">
           <i class="fa fa-edit"></i> edit </a
         >&nbsp;
         <a class="btn btn-danger" (click)="deleteSite(item.siteID)">

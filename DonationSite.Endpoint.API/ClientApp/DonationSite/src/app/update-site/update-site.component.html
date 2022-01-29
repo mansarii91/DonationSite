@@ -1,1 +1,49 @@
-<p>update-site works!</p>
+<form (ngSubmit)="onSubmit()" #siteForm="ngForm" autocomplete="off" novalidate>
+  <input type="hidden" [(ngModel)]="model.siteID" name="siteID" id="siteID" />
+  <div class="mb-3 mt-3">
+    <label for="siteName" class="form-label">Site Name</label>
+    <input
+      type="siteName"
+      class="form-control"
+      id="siteName"
+      placeholder="Enter site name"
+      name="siteName"
+      #siteName="ngModel"
+      [(ngModel)]="model.name"
+      required
+    />
+    <div class="alert alert-danger" *ngIf="siteName.invalid && siteName.dirty">
+      <span
+        class="help-block"
+        *ngIf="siteName.errors && siteName.errors['required']"
+      >
+        The site name is required!
+      </span>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="siteUrl" class="form-label">Site URL</label>
+    <input
+      type="text"
+      class="form-control"
+      id="url"
+      placeholder="Enter site url"
+      name="url"
+      [(ngModel)]="model.url"
+      required
+      #url="ngModel"
+    />
+    <div class="alert alert-danger" *ngIf="url.invalid && url.dirty">
+      <span class="help-block" *ngIf="url.errors && url.errors['required']">
+        The URL is required!
+      </span>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="siteForm.invalid">
+    Create
+  </button>
+  &nbsp;&nbsp;
+  <a routerLink="/site" class="btn btn-danger">
+    <span> Back </span>
+  </a>
+</form>

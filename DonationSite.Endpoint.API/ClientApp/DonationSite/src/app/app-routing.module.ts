@@ -35,7 +35,7 @@ const routes: Routes = [
     component: AddSiteComponent,
   },
   {
-    path: 'updateSite',
+    path: 'updateSite/:id',
     component: UpdateSiteComponent,
   },
   {

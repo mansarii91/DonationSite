@@ -6,3 +6,9 @@ export class CreateSite implements Interfaces.CreateSite {
   public url: string = '';
   public siteID: number = 0;
 }
+
+export class UpdateSite implements Interfaces.UpdateSite {
+  public name: string = '';
+  public url: string = '';
+  public siteID: number = 0;
+}

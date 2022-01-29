@@ -1,6 +1,6 @@
 import { ShareDataService } from './../../services/shareData.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import * as Models from '../../models/createSite';
+import * as Models from '../../models/site';
 import * as Interfaces from '../../interfaces/site';
 import { SiteService } from 'src/services/site.service';
 import { Router } from '@angular/router';
