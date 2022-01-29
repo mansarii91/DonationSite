@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-site.component.css'],
 })
 export class AddSiteComponent implements OnInit {
+  hasError: boolean = false;
+
   constructor(
     private service: SiteService,
     private router: Router,
@@ -27,11 +29,11 @@ export class AddSiteComponent implements OnInit {
     this.service.addSite(this.siteModel).subscribe(
       (result: boolean) => {
         // this.ShareDataService.setAddSiteData(result, '');
-        this.router.navigate(['/site']);
+        this.router.navigate(['/site/t']);
         console.log(result);
       },
       (error: string) => {
-        // this.ShareDataService.setAddSiteData(false, error);
+        this.hasError = true;
       },
       () => {
         console.log(`Completed!`);

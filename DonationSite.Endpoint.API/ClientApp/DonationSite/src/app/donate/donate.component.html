@@ -1,85 +1,96 @@
-<div *ngIf="isFailed">
-  <div class="alert alert-danger alert-dismissible">
-    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    <strong>Oops!</strong> something went wrong.
-  </div>
+<p class="h1">Submit a Donation</p>
+
+<div class="bg-light mt-4 p-5 rounded">
+  <form
+    (ngSubmit)="onSubmit()"
+    #donateForm="ngForm"
+    autocomplete="off"
+    novalidate
+  >
+    <input
+      type="hidden"
+      [(ngModel)]="model.fkSiteID"
+      name="fkSiteID"
+      id="fkSiteID"
+    />
+    <div class="mb-3">
+      <label for="donatorName" class="form-label">Donatorname</label>
+      <input
+        type="text"
+        class="form-control"
+        id="donatorName"
+        placeholder="Enter Donatorname"
+        name="donatorName"
+        [(ngModel)]="model.donatorName"
+        required
+        #donatorName="ngModel"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="donatorName.invalid && donatorName.dirty"
+      >
+        <span
+          class="help-block"
+          *ngIf="donatorName.errors && donatorName.errors['required']"
+        >
+          The Donatorname is required!
+        </span>
+      </div>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label for="donationValue" class="form-label">Value($)</label>
+      <input
+        type="number"
+        class="form-control"
+        id="donationValue"
+        placeholder="Enter value "
+        name="donationValue"
+        #donationValue="ngModel"
+        [(ngModel)]="model.value"
+        min="1"
+        required
+      />
+
+      <div
+        class="alert alert-danger"
+        *ngIf="donationValue.invalid && donationValue.dirty"
+      >
+        <span
+          class="help-block"
+          *ngIf="donationValue.errors && donationValue.errors['required']"
+        >
+          The donation value is required!
+        </span>
+        <span
+          class="help-block"
+          *ngIf="donationValue.errors && donationValue.errors['min']"
+        >
+          The value must be atleast 1$ !
+        </span>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-success"
+      [disabled]="donateForm.invalid"
+    >
+      Donate
+    </button>
+    &nbsp;&nbsp;
+    <a routerLink="/site" class="btn btn-danger">
+      <span> Back </span>
+    </a>
+    <div *ngIf="isFailed">
+      <div class="alert alert-danger alert-dismissible">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+        ></button>
+        <strong>Oops!</strong> something went wrong.
+      </div>
+    </div>
+  </form>
 </div>
-
-<form
-  (ngSubmit)="onSubmit()"
-  #donateForm="ngForm"
-  autocomplete="off"
-  novalidate
->
-  <input
-    type="hidden"
-    [(ngModel)]="model.fkSiteID"
-    name="fkSiteID"
-    id="fkSiteID"
-  />
-  <div class="mb-3">
-    <label for="donatorName" class="form-label">Donatorname</label>
-    <input
-      type="text"
-      class="form-control"
-      id="donatorName"
-      placeholder="Enter Donatorname"
-      name="donatorName"
-      [(ngModel)]="model.donatorName"
-      required
-      #donatorName="ngModel"
-    />
-    <div
-      class="alert alert-danger"
-      *ngIf="donatorName.invalid && donatorName.dirty"
-    >
-      <span
-        class="help-block"
-        *ngIf="donatorName.errors && donatorName.errors['required']"
-      >
-        The Donatorname is required!
-      </span>
-    </div>
-  </div>
-
-  <div class="mb-3 mt-3">
-    <label for="donationValue" class="form-label">Value($)</label>
-    <input
-      type="number"
-      class="form-control"
-      id="donationValue"
-      placeholder="Enter value "
-      name="donationValue"
-      #donationValue="ngModel"
-      [(ngModel)]="model.value"
-      min="1"
-      required
-    />
-
-    <div
-      class="alert alert-danger"
-      *ngIf="donationValue.invalid && donationValue.dirty"
-    >
-      <span
-        class="help-block"
-        *ngIf="donationValue.errors && donationValue.errors['required']"
-      >
-        The donation value is required!
-      </span>
-      <span
-        class="help-block"
-        *ngIf="donationValue.errors && donationValue.errors['min']"
-      >
-        The value must be atleast 1$ !
-      </span>
-    </div>
-  </div>
-
-  <button type="submit" class="btn btn-success" [disabled]="donateForm.invalid">
-    Donate
-  </button>
-  &nbsp;&nbsp;
-  <a routerLink="/site" class="btn btn-danger">
-    <span> Back </span>
-  </a>
-</form>

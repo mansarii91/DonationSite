@@ -1,3 +1,5 @@
+<p class="h1">List Of Donation</p>
+
 <div *ngIf="hasError">
   <div class="alert alert-danger alert-dismissible">
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -5,16 +7,13 @@
   </div>
 </div>
 
-<a routerLink="/reportSite" class="btn btn-danger">
-  <span> Back </span>
-</a>
 <br />
 <br />
 <div>
   <div class="row alert alert-info">
-    <div class="col">Site name : {{ result[0].siteName }}</div>
+    <div class="col"><b> Site name : </b> {{ result[0].siteName }}</div>
     <div class="col">
-      Site URL :
+      <b> Site URL : </b>
       <a href="{{ result[0].siteURL }}" target="_blank">
         {{ result[0].siteURL }}
       </a>
@@ -32,13 +31,13 @@
   <tbody>
     <tr *ngFor="let item of result">
       <td>{{ item.donator }}</td>
-      <td>{{ item.value }}</td>
+      <td>{{ item.value | number }} $</td>
     </tr>
   </tbody>
 </table>
 <br />
 <br />
-<br />
-<br />
-<br />
-<br />
+
+<a routerLink="/reportSite" class="btn btn-danger">
+  <span> Back </span>
+</a>

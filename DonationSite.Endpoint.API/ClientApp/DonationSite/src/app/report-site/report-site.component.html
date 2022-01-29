@@ -1,3 +1,6 @@
+<p class="h1">List Of Site</p>
+<p class="h6">List of sites and total donations received</p>
+<br />
 <table class="table table-striped">
   <thead>
     <tr>
@@ -11,7 +14,7 @@
     <tr *ngFor="let item of result">
       <td>{{ item.siteName }}</td>
       <td>{{ item.siteURL }}</td>
-      <td>{{ item.totalDonation }}</td>
+      <td>{{ item.totalDonation | number }} $</td>
       <td>
         <a
           class="btn btn-primary"
