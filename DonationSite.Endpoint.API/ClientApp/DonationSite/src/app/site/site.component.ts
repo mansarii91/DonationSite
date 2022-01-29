@@ -15,7 +15,7 @@ export class SiteComponent implements OnInit {
   public isAddSuccess: boolean = false;
   hasError: boolean = false;
   isSuccess: boolean = false;
-
+  totalCount: number = 0;
   //****************************************** */
   constructor(
     private service: SiteService,
@@ -24,6 +24,7 @@ export class SiteComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getTotalCount();
     this.loadData();
     // prop for show success message
     this.isSuccess =
@@ -51,6 +52,21 @@ export class SiteComponent implements OnInit {
       (result: boolean) => {
         console.log('delete result: ' + result);
         this.loadData();
+      },
+      (error: string) => {
+        this.hasError = true;
+        console.log(error);
+      },
+      () => {
+        console.log(`Completed!`);
+      }
+    );
+  }
+
+  getTotalCount() {
+    this.service.getTotalCount().subscribe(
+      (result: number) => {
+        this.totalCount = result;
       },
       (error: string) => {
         this.hasError = true;

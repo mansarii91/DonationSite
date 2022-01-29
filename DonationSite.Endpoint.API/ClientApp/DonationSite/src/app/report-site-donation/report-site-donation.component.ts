@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ReportService } from 'src/services/report.service';
 import * as BaseParamsModel from '../../models/serviceParams';
-import * as BaseParamInterface from '../../interfaces/baseServiceParam';
+import * as BaseParamInterface from '../../interfaces/serviceParam';
 import { ReportDonator } from 'src/interfaces/reportDonator';
 
 @Component({

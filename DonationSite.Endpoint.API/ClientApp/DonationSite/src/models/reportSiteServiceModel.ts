@@ -1,4 +1,4 @@
-import { ReportSiteServiceParam } from './../interfaces/baseServiceParam';
+import { ReportSiteServiceParam } from '../interfaces/serviceParam';
 export class ReportSiteServiceModel implements ReportSiteServiceParam {
   public siteId: number = 0;
   public take: number = 0;

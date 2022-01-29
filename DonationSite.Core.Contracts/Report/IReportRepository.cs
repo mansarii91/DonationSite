@@ -17,11 +17,13 @@ namespace DonationSite.Core.Contracts.Report
         /// <param name="siteId"></param>
         /// <returns></returns>
         Task<IEnumerable<Entities.Report.DonateReport>> GetDonatioSiteReport(int siteId, int take, int skip);
+        Task<long> GetDonatioSiteReportTotalCount(int siteId);
         /// <summary>
         /// view each site with cumulative donations
         /// </summary>
         /// <param name="siteId"></param>
         /// <returns></returns>
         Task<IEnumerable<Entities.Report.DonateSiteDTO>> GetDonationReport(int take,int skip);
+        Task<long> GetDonationReportTotalCount();
     }
 }

@@ -42,6 +42,25 @@ namespace DonationSite.DataAccess.EF
 
         }
 
+        public async Task<long> GetDonatioSiteReportTotalCount(int siteId)
+        {
+            var res = Task.Run(() =>
+                      (from p in dataContext.Site
+                       join q in dataContext.Donate
+                        on p.SiteID equals q.Site.SiteID
+                       where p.SiteID == siteId
+                       select p.Name)
+                       .Count()
+
+            );
+
+            await Task.WhenAll(res);
+
+            return res.Result;
+
+        }
+
+
         public async Task<IEnumerable<DonateSiteDTO>> GetDonationReport(int take, int skip)
         {
             var data = Task.Run(() => (from p in dataContext.Donate
@@ -73,6 +92,25 @@ namespace DonationSite.DataAccess.EF
             await Task.WhenAll(data);
             return data.Result;
         }
+
+        public async Task<long> GetDonationReportTotalCount()
+        {
+            var data = Task.Run(() => (from p in dataContext.Donate
+                                       join q in dataContext.Site
+                                       on p.FKSiteID equals q.SiteID
+                                       select new
+                                       {
+                                           FkSiteID = p.FKSiteID
+                                       })
+                                       .GroupBy(a => a.FkSiteID)
+                                       .Count()
+
+            );
+
+            await Task.WhenAll(data);
+            return data.Result;
+        }
+
 
     }
 }

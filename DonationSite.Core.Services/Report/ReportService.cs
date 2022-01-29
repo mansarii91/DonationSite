@@ -25,5 +25,15 @@ namespace DonationSite.Core.Services
             return await unitOfWork.ReportRepository.GetDonationReport(take, skip);
 
         }
+
+        public async Task<long> GetDonatioSiteReportTotalCount(int siteId)
+        {
+            return await unitOfWork.ReportRepository.GetDonatioSiteReportTotalCount(siteId);
+        }
+
+        public async Task<long> GetDonationReportTotalCount()
+        {
+            return await unitOfWork.ReportRepository.GetDonationReportTotalCount();
+        }
     }
 }

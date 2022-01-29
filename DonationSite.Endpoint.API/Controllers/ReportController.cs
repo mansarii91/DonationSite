@@ -44,6 +44,23 @@ namespace DonationSite.Endpoint.API.Controllers
             }
         }
 
+        [HttpGet("{siteId:int}")]
+        [ProducesResponseType(StatusCodes.Status200OK)] // for swagger documentation
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)] // for swagger documentation
+        public async Task<IActionResult> GetDonateSiteReportTotalCount(int siteId)
+        {
+            try
+            {
+                var totalCount = await _unitOfWork.ReportRepository.GetDonatioSiteReportTotalCount(siteId);
+                return Ok(totalCount);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Something went wrong in the {nameof(GetDonateSiteReport)}");
+                return StatusCode(500, "Internal Server Error. Please try again later");
+            }
+        }
+
         [HttpGet("{take:int}/{skip:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)] // for swagger documentation
         [ProducesResponseType(StatusCodes.Status500InternalServerError)] // for swagger documentation
@@ -53,6 +70,23 @@ namespace DonationSite.Endpoint.API.Controllers
             {
                 var reportData = await _unitOfWork.ReportRepository.GetDonationReport(take,skip);
                 return Ok(reportData);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Something went wrong in the {nameof(GetDonationReport)}");
+                return StatusCode(500, "Internal Server Error. Please try again later");
+            }
+        }
+
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)] // for swagger documentation
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)] // for swagger documentation
+        public async Task<IActionResult> GetDonationReportTotalCount()
+        {
+            try
+            {
+                var totalCount = await _unitOfWork.ReportRepository.GetDonationReportTotalCount();
+                return Ok(totalCount);
             }
             catch (Exception ex)
             {

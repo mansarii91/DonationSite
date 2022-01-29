@@ -34,8 +34,8 @@ namespace DonationSite.Endpoint.API.Controllers
         {
             try
             {
-                var data = _unitOfWork.SiteRepository.GetTotalCount();
-                return Ok(data);
+                var totalCount = _unitOfWork.SiteRepository.GetTotalCount();
+                return Ok(totalCount);
             }
             catch (Exception ex)
             {

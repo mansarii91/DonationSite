@@ -20,6 +20,11 @@ export class SiteService {
     return this.http.get<Interfaces.Site[]>(url).pipe();
   }
 
+  public getTotalCount(): Observable<number> {
+    let url = `${this.mainUrl}`;
+    return this.http.get<number>(url).pipe();
+  }
+
   public getSiteById(id: number): Observable<Interfaces.UpdateSite> {
     let url = `${this.mainUrl}/${id}`;
     return this.http.get<Interfaces.UpdateSite>(url).pipe();

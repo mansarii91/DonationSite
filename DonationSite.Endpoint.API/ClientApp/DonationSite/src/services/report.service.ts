@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {
   BaseServiceParam,
   ReportSiteServiceParam,
-} from '../interfaces/baseServiceParam';
+} from '../interfaces/serviceParam';
 import * as InterfaceDonator from '../interfaces/reportDonator';
 import * as InterfaceReport from '../interfaces/reportSite';
 

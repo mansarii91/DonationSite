@@ -2,7 +2,7 @@ import { ReportSite } from './../../interfaces/reportSite';
 import { ReportService } from './../../services/report.service';
 import { Component, OnInit } from '@angular/core';
 import * as BaseParamsModel from './../../models/serviceParams';
-import * as BaseParamInterface from '../../interfaces/baseServiceParam';
+import * as BaseParamInterface from '../../interfaces/serviceParam';
 
 @Component({
   selector: 'app-report-site',

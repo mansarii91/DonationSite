@@ -12,7 +12,11 @@ namespace DonationSite.Core.Contracts.Report
     public interface IReportService
     {
         Task<IEnumerable<Entities.Report.DonateReport>> GetDonationSiteReport(int siteId, int take, int skip);
+        Task<long> GetDonatioSiteReportTotalCount(int siteId);
+
         Task<IEnumerable<Entities.Report.DonateSite>> GetDonationReport(int take,int skip);
+        Task<long> GetDonationReportTotalCount();
+
 
     }
 }

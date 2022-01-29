@@ -1,7 +1,7 @@
 import {
   ReportSiteServiceParam,
   BaseServiceParam,
-} from './../interfaces/baseServiceParam';
+} from '../interfaces/serviceParam';
 
 export class BaseParams implements BaseServiceParam {
   public take: number = 0;
