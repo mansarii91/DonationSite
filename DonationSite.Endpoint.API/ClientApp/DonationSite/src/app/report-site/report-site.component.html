@@ -13,8 +13,11 @@
       <td>{{ item.siteURL }}</td>
       <td>{{ item.totalDonation }}</td>
       <td>
-        <a class="btn" (click)="showSiteID(item.siteID)">
-          <i class="fa fa-edit"></i>{{ item.siteURL }}
+        <a
+          class="btn btn-primary"
+          [routerLink]="['/reportSiteDonation', item.siteID]"
+        >
+          <i class="fa fa-eye"></i> Show Donators
         </a>
       </td>
     </tr>

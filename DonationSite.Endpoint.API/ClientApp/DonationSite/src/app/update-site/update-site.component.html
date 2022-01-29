@@ -1,3 +1,10 @@
+<div *ngIf="hasError">
+  <div class="alert alert-danger alert-dismissible">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Oops!</strong> something went wrong.
+  </div>
+</div>
+
 <form (ngSubmit)="onSubmit()" #siteForm="ngForm" autocomplete="off" novalidate>
   <input type="hidden" [(ngModel)]="model.siteID" name="siteID" id="siteID" />
   <div class="mb-3 mt-3">
@@ -40,7 +47,7 @@
     </div>
   </div>
   <button type="submit" class="btn btn-success" [disabled]="siteForm.invalid">
-    Create
+    Update
   </button>
   &nbsp;&nbsp;
   <a routerLink="/site" class="btn btn-danger">

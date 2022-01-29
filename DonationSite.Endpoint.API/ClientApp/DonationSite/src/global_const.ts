@@ -1,4 +1,4 @@
-import { HttpHeaders } from "@angular/common/http";
+import { HttpHeaders } from '@angular/common/http';
 
 export class GlobalConst {
   public static MAIN_URL_Site = 'https://localhost:44337/api/Site';

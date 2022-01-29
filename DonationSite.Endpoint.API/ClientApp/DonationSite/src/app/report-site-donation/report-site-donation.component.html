@@ -1,0 +1,44 @@
+<div *ngIf="hasError">
+  <div class="alert alert-danger alert-dismissible">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Oops!</strong> something went wrong.
+  </div>
+</div>
+
+<a routerLink="/reportSite" class="btn btn-danger">
+  <span> Back </span>
+</a>
+<br />
+<br />
+<div>
+  <div class="row alert alert-info">
+    <div class="col">Site name : {{ result[0].siteName }}</div>
+    <div class="col">
+      Site URL :
+      <a href="{{ result[0].siteURL }}" target="_blank">
+        {{ result[0].siteURL }}
+      </a>
+    </div>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Donator</th>
+      <th>Value ($)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of result">
+      <td>{{ item.donator }}</td>
+      <td>{{ item.value }}</td>
+    </tr>
+  </tbody>
+</table>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

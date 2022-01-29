@@ -43,7 +43,7 @@ const routes: Routes = [
     component: ReportSiteComponent,
   },
   {
-    path: 'reportSiteDonation',
+    path: 'reportSiteDonation/:id',
     component: ReportSiteDonationComponent,
   },
   {

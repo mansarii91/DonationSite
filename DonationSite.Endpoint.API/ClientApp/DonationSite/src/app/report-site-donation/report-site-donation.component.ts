@@ -1,4 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ReportService } from 'src/services/report.service';
+import * as BaseParamsModel from '../../models/serviceParams';
+import * as BaseParamInterface from '../../interfaces/baseServiceParam';
+import { ReportDonator } from 'src/interfaces/reportDonator';
 
 @Component({
   selector: 'app-report-site-donation',
@@ -6,12 +11,34 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./report-site-donation.component.css'],
 })
 export class ReportSiteDonationComponent implements OnInit {
-  constructor() {}
-  @Input() public siteId: number = 0;
+  //******************* */
+  result: ReportDonator[] = [];
+  hasError: boolean = false;
 
-  ngOnInit(): void {}
+  //************************************************** */
+  constructor(private router: ActivatedRoute, private service: ReportService) {}
 
-  showID() {
-    alert(this.siteId);
+  ngOnInit(): void {
+    let siteId: number = this.router.snapshot.params['id'];
+    this.loadData(siteId);
+  }
+
+  loadData(siteId: number) {
+    let params: BaseParamInterface.ReportSiteServiceParam = new BaseParamsModel.ReportSiteServiceModel();
+    params.skip = 0;
+    params.take = 1000;
+    params.siteId = siteId;
+    this.service.GetDonationSiteReport(params).subscribe(
+      (result: ReportDonator[]) => {
+        this.result = result;
+      },
+      (error: string) => {
+        this.hasError = true;
+        console.log(error);
+      },
+      () => {
+        console.log(`Completed!`);
+      }
+    );
   }
 }
