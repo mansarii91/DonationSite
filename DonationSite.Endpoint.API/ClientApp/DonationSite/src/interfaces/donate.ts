@@ -1,4 +1,5 @@
 export interface Donate {
-  donator: string;
+  donatorName: string;
   value: number;
+  fkSiteID: number;
 }

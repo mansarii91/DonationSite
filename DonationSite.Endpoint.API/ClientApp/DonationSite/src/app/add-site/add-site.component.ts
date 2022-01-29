@@ -16,17 +16,14 @@ export class AddSiteComponent implements OnInit {
     private router: Router,
     private ShareDataService: ShareDataService
   ) {
-    this.submitted = false;
     this.siteModel = new Models.CreateSite();
   }
 
   ngOnInit(): void {}
 
-  public submitted: boolean;
   public siteModel: Interfaces.Site;
 
   public onSubmit(): void {
-    this.submitted = true;
     this.service.addSite(this.siteModel).subscribe(
       (result: boolean) => {
         // this.ShareDataService.setAddSiteData(result, '');
@@ -42,6 +39,7 @@ export class AddSiteComponent implements OnInit {
     );
   }
 
+  //just for check the form values
   public get diagnostic() {
     return JSON.stringify(this.siteModel);
   }

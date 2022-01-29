@@ -34,4 +34,8 @@ export class ReportSiteComponent implements OnInit {
       }
     );
   }
+
+  showSiteID(id: number) {
+    alert(id);
+  }
 }

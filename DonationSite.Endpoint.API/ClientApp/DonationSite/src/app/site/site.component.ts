@@ -1,7 +1,8 @@
 import * as Interfaces from './../../interfaces/site';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SiteService } from '../../services/site.service';
 import { ShareDataService } from 'src/services/shareData.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-site',
@@ -9,27 +10,51 @@ import { ShareDataService } from 'src/services/shareData.service';
   styleUrls: ['./site.component.css'],
 })
 export class SiteComponent implements OnInit {
+  //variables
   public siteList: Interfaces.Site[] = [];
-  public error: string = '';
+  public isAddSuccess: boolean = false;
+  hasError: boolean = false;
+  isSuccess: boolean = false;
+
+  //****************************************** */
   constructor(
     private service: SiteService,
-    private sharedDataService: ShareDataService
+    private sharedDataService: ShareDataService,
+    private rout: ActivatedRoute
   ) {}
-  public isAddSuccess: boolean = false;
-  public errAddMsg: string = '';
 
   ngOnInit(): void {
+    this.loadData();
+    // prop for show success message
+    this.isSuccess =
+      this.rout.snapshot.params['result'] != undefined &&
+      this.rout.snapshot.params['result'] == 't';
+  }
+
+  loadData() {
     this.service.getAllSiteList(100, 0).subscribe(
       (result: Interfaces.Site[]) => {
         this.siteList = result;
-        // this.sharedDataService.sharedData.subscribe((c) => {
-        //   this.isAddSuccess = c.;
-        // });
       },
       (error: string) => {
-        this.error = error;
+        this.hasError = true;
         console.log(error);
-        // this.errAddMsg = this.sharedDataService.getAddSiteData().siteAddErrorMsg;
+      },
+      () => {
+        console.log(`Completed!`);
+      }
+    );
+  }
+
+  deleteSite(siteId: number) {
+    this.service.deleteSite(siteId).subscribe(
+      (result: boolean) => {
+        console.log('delete result: ' + result);
+        this.loadData();
+      },
+      (error: string) => {
+        this.hasError = true;
+        console.log(error);
       },
       () => {
         console.log(`Completed!`);

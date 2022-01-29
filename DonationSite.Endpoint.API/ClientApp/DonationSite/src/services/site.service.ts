@@ -27,7 +27,7 @@ export class SiteService {
 
   public deleteSite(id: number): Observable<boolean> {
     let url = `${this.mainUrl}/${id}`;
-    return this.http.get<boolean>(url).pipe();
+    return this.http.delete<boolean>(url).pipe();
   }
 
   public addSite(model: Interfaces.CreateSite): Observable<boolean> {

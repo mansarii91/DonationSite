@@ -1,7 +1,14 @@
-<div *ngIf="isAddSuccess">
+<div *ngIf="hasError">
+  <div class="alert alert-danger alert-dismissible">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Oops!</strong> something went wrong.
+  </div>
+</div>
+
+<div *ngIf="isSuccess">
   <div class="alert alert-success alert-dismissible">
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    <strong>Success!</strong> Your site submitted.
+    <strong>Success!</strong> Your operation successfully done.
   </div>
 </div>
 
@@ -24,9 +31,15 @@
       <td>{{ item.url }}</td>
       <td>{{ item.createdDateTime | date: "short" }}</td>
       <td>
-        <a routerLink="/updateSite" class="btn">
-          <i class="fa fa-edit"></i>
-        </a>
+        <a class="btn btn-primary" (click)="deleteSite(item.siteID)">
+          <i class="fa fa-edit"></i> edit </a
+        >&nbsp;
+        <a class="btn btn-danger" (click)="deleteSite(item.siteID)">
+          <i class="fa fa-trash"></i> delete </a
+        >&nbsp;
+        <a class="btn btn-success" [routerLink]="['/donate', item.siteID]">
+          <i class="fa fa-plus"></i> donate </a
+        >&nbsp;
       </td>
     </tr>
   </tbody>

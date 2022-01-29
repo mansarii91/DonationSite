@@ -27,6 +27,10 @@ const routes: Routes = [
     component: SiteComponent,
   },
   {
+    path: 'site/:result',
+    component: SiteComponent,
+  },
+  {
     path: 'addSite',
     component: AddSiteComponent,
   },
@@ -43,7 +47,7 @@ const routes: Routes = [
     component: ReportSiteDonationComponent,
   },
   {
-    path: 'donate',
+    path: 'donate/:id',
     component: DonateComponent,
   },
 ];
