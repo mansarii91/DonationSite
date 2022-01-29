@@ -26,11 +26,24 @@ export class ReportService {
     return this.http.get<InterfaceDonator.ReportDonator[]>(url).pipe();
   }
 
+  //get count
+  public GetDonationSiteReportTotalCount(siteId: number): Observable<number> {
+    let url = `${this.mainUrl}/${siteId}`;
+    return this.http.get<number>(url).pipe();
+  }
+  //=============================================================================================== */
+
   /// view list of all sites with his total donation
   public GetReportSites(
     params: BaseServiceParam
   ): Observable<InterfaceReport.ReportSite[]> {
     let url = `${this.mainUrl}/${params.take}/${params.skip}`;
     return this.http.get<InterfaceReport.ReportSite[]>(url).pipe();
+  }
+
+  //get count
+  public GetReportSitesTotalCount(): Observable<number> {
+    let url = `${this.mainUrl}/`;
+    return this.http.get<number>(url).pipe();
   }
 }

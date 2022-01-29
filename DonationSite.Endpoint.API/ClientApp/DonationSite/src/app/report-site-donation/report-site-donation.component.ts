@@ -14,12 +14,13 @@ export class ReportSiteDonationComponent implements OnInit {
   //******************* */
   result: ReportDonator[] = [];
   hasError: boolean = false;
-
+  totalCount: number = 0;
   //************************************************** */
   constructor(private router: ActivatedRoute, private service: ReportService) {}
 
   ngOnInit(): void {
     let siteId: number = this.router.snapshot.params['id'];
+    this.getTotalCount(siteId);
     this.loadData(siteId);
   }
 
@@ -31,6 +32,21 @@ export class ReportSiteDonationComponent implements OnInit {
     this.service.GetDonationSiteReport(params).subscribe(
       (result: ReportDonator[]) => {
         this.result = result;
+      },
+      (error: string) => {
+        this.hasError = true;
+        console.log(error);
+      },
+      () => {
+        console.log(`Completed!`);
+      }
+    );
+  }
+
+  getTotalCount(siteId: number) {
+    this.service.GetDonationSiteReportTotalCount(siteId).subscribe(
+      (result: number) => {
+        this.totalCount = result;
       },
       (error: string) => {
         this.hasError = true;
