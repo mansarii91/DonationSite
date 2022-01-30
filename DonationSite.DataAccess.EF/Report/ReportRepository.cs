@@ -73,8 +73,7 @@ namespace DonationSite.DataAccess.EF
                                            Value = p.Value,
                                            FkSiteID = p.FKSiteID
                                        })
-                                       .Skip(skip)
-                                       .Take(take)
+
                                        .ToList()
                                        .GroupBy(a => a.FkSiteID)
                                        .Select(a => new DonateSiteDTO
@@ -84,7 +83,9 @@ namespace DonationSite.DataAccess.EF
                                            TotalDonation = a.Sum(a => a.Value),
                                            SiteID = a.FirstOrDefault().FkSiteID
                                        })
-                                       .OrderBy(a=>a.TotalDonation)
+                                       .OrderBy(a => a.TotalDonation)
+                                       .Skip(skip)
+                                       .Take(take)
                                        .ToList()
 
             );

@@ -28,7 +28,17 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of siteList">
+    <tr
+      *ngFor="
+        let item of siteList
+          | paginate
+            : {
+                itemsPerPage: itemsPerPage,
+                currentPage: page,
+                totalItems: totalCount
+              }
+      "
+    >
       <td>{{ item.name }}</td>
       <td>{{ item.url }}</td>
       <td>{{ item.createdDateTime | date: "short" }}</td>
@@ -36,7 +46,7 @@
         <a class="btn btn-primary" [routerLink]="['/updateSite', item.siteID]">
           <i class="fa fa-edit"></i> edit </a
         >&nbsp;
-        <a class="btn btn-danger" (click)="deleteSite(item.siteID)">
+        <a class="btn btn-danger" (click)="deleteSite(item.siteID, page)">
           <i class="fa fa-trash"></i> delete </a
         >&nbsp;
         <a class="btn btn-success" [routerLink]="['/donate', item.siteID]">
@@ -46,6 +56,10 @@
     </tr>
   </tbody>
 </table>
+<pagination-controls
+  class="pagi"
+  (pageChange)="onPagingChange((page = $event))"
+></pagination-controls>
 <br />
 <br />
 <br />

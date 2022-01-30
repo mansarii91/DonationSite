@@ -10,22 +10,27 @@ import * as BaseParamInterface from '../../interfaces/serviceParam';
   styleUrls: ['./report-site.component.css'],
 })
 export class ReportSiteComponent implements OnInit {
+  //-------------------------------------------------------
   result: ReportSite[];
-  totalCount: number = 0;
   hasError: boolean = false;
+  totalCount: number = 0;
+  page = 1;
+  itemsPerPage = 5;
+
+  //=======================================================
   constructor(private reportService: ReportService) {
     this.result = [];
   }
 
   ngOnInit(): void {
     this.getTotalCount();
-    this.loadData();
+    this.loadData(1);
   }
 
-  loadData() {
+  loadData(page: number) {
     let params: BaseParamInterface.BaseServiceParam = new BaseParamsModel.BaseParams();
-    params.skip = 0;
-    params.take = 1000;
+    params.skip = (page - 1) * this.itemsPerPage;
+    params.take = this.itemsPerPage;
     this.reportService.GetReportSites(params).subscribe(
       (result: ReportSite[]) => {
         this.result = result;
@@ -54,7 +59,7 @@ export class ReportSiteComponent implements OnInit {
     );
   }
 
-  showSiteID(id: number) {
-    alert(id);
+  onPagingChange(page: any) {
+    this.loadData(page);
   }
 }

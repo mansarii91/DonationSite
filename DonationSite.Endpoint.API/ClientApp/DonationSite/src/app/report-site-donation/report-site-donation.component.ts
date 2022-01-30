@@ -11,23 +11,26 @@ import { ReportDonator } from 'src/interfaces/reportDonator';
   styleUrls: ['./report-site-donation.component.css'],
 })
 export class ReportSiteDonationComponent implements OnInit {
-  //******************* */
+  //************************************************** */
   result: ReportDonator[] = [];
   hasError: boolean = false;
   totalCount: number = 0;
+  page = 1;
+  itemsPerPage = 5;
+  siteId = 0;
   //************************************************** */
   constructor(private router: ActivatedRoute, private service: ReportService) {}
 
   ngOnInit(): void {
-    let siteId: number = this.router.snapshot.params['id'];
-    this.getTotalCount(siteId);
-    this.loadData(siteId);
+    this.siteId = this.router.snapshot.params['id'];
+    this.getTotalCount(this.siteId);
+    this.loadData(this.siteId, 1);
   }
 
-  loadData(siteId: number) {
+  loadData(siteId: number, page: number) {
     let params: BaseParamInterface.ReportSiteServiceParam = new BaseParamsModel.ReportSiteServiceModel();
-    params.skip = 0;
-    params.take = 1000;
+    params.skip = (page - 1) * this.itemsPerPage;
+    params.take = this.itemsPerPage;
     params.siteId = siteId;
     this.service.GetDonationSiteReport(params).subscribe(
       (result: ReportDonator[]) => {
@@ -56,5 +59,9 @@ export class ReportSiteDonationComponent implements OnInit {
         console.log(`Completed!`);
       }
     );
+  }
+
+  onPagingChange(page: any, siteId: number) {
+    this.loadData(siteId, page);
   }
 }

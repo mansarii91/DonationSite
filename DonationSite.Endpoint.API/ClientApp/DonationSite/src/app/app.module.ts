@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddSiteComponent } from './add-site/add-site.component';
 import { UpdateSiteComponent } from './update-site/update-site.component';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

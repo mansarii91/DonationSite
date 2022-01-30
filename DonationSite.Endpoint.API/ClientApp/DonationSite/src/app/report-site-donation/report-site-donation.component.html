@@ -29,12 +29,26 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of result">
+    <tr
+      *ngFor="
+        let item of result
+          | paginate
+            : {
+                itemsPerPage: itemsPerPage,
+                currentPage: page,
+                totalItems: totalCount
+              }
+      "
+    >
       <td>{{ item.donator }}</td>
       <td>{{ item.value | number }} $</td>
     </tr>
   </tbody>
 </table>
+<pagination-controls
+  class="pagi"
+  (pageChange)="onPagingChange((page = $event), siteId)"
+></pagination-controls>
 <br />
 <br />
 

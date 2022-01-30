@@ -16,24 +16,24 @@ export class SiteComponent implements OnInit {
   hasError: boolean = false;
   isSuccess: boolean = false;
   totalCount: number = 0;
+  page = 1;
+  itemsPerPage = 5;
   //****************************************** */
-  constructor(
-    private service: SiteService,
-    private sharedDataService: ShareDataService,
-    private rout: ActivatedRoute
-  ) {}
+  constructor(private service: SiteService, private rout: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.getTotalCount();
-    this.loadData();
+    this.loadData(1); // pass 1 for first load
     // prop for show success message
     this.isSuccess =
       this.rout.snapshot.params['result'] != undefined &&
       this.rout.snapshot.params['result'] == 't';
   }
 
-  loadData() {
-    this.service.getAllSiteList(100, 0).subscribe(
+  loadData(page: number) {
+    let take = this.itemsPerPage;
+    let skip = (page - 1) * this.itemsPerPage;
+    this.service.getAllSiteList(take, skip).subscribe(
       (result: Interfaces.Site[]) => {
         this.siteList = result;
       },
@@ -47,11 +47,11 @@ export class SiteComponent implements OnInit {
     );
   }
 
-  deleteSite(siteId: number) {
+  deleteSite(siteId: number, currentPage: number) {
     this.service.deleteSite(siteId).subscribe(
       (result: boolean) => {
         console.log('delete result: ' + result);
-        this.loadData();
+        this.loadData(currentPage);
       },
       (error: string) => {
         this.hasError = true;
@@ -76,5 +76,9 @@ export class SiteComponent implements OnInit {
         console.log(`Completed!`);
       }
     );
+  }
+
+  onPagingChange(page: any) {
+    this.loadData(page);
   }
 }
