@@ -26,6 +26,7 @@ namespace DonationSite.Endpoint.API
             
             services.AddDbContext<DonationSiteDataContext>(option =>
             option.UseSqlServer(Configuration.GetConnectionString("sqlConnection")));
+
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddAutoMapper(typeof(AutoMapperConfig));
 
@@ -46,7 +47,7 @@ namespace DonationSite.Endpoint.API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DonationSiteDataContext dataContext )
         {
             if (env.IsDevelopment())
             {
@@ -56,14 +57,14 @@ namespace DonationSite.Endpoint.API
             }
             app.UseHttpsRedirection();
             app.UseCors("CorsAllowAll");
-            app.UseRouting();
-
+            app.UseRouting();            
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+            dataContext.Database.EnsureCreated();
 
         }
     }

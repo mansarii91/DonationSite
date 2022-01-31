@@ -12,7 +12,7 @@ namespace DonationSite.Core.Entities.Site
         [Required]
         public string URL { get; set; }
         public DateTime CreatedDateTime { get; set; }
-        public ICollection<Donate.Donate> Donates { get; set; }
+        //public ICollection<Donate.Donate> Donates { get; set; }
 
     }
 }

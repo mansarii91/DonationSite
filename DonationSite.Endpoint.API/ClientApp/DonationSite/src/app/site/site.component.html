@@ -23,7 +23,7 @@
     <tr>
       <th>Site Name</th>
       <th>Site URL</th>
-      <th>Created Time</th>
+      <th>Date Created</th>
       <th>Functions</th>
     </tr>
   </thead>
@@ -41,7 +41,7 @@
     >
       <td>{{ item.name }}</td>
       <td>{{ item.url }}</td>
-      <td>{{ item.createdDateTime | date: "short" }}</td>
+      <td>{{ item.createdDateTime | date: "shortDate" }}</td>
       <td>
         <a class="btn btn-primary" [routerLink]="['/updateSite', item.siteID]">
           <i class="fa fa-edit"></i> edit </a
