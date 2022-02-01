@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DonationSite.Core.Contracts;
+using DonationSite.Core.Contracts.Report;
 using DonationSite.Core.Entities.Report;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,13 +16,13 @@ namespace DonationSite.Endpoint.API.Controllers
     [ApiController]
     public class ReportController : ControllerBase
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IReportService _reportService;
         private readonly ILogger _logger;
         private readonly IMapper _mapper;
 
-        public ReportController(IUnitOfWork unitOfWork, ILogger<SiteController> logger, IMapper mapper)
+        public ReportController(IReportService reportService, ILogger<SiteController> logger, IMapper mapper)
         {
-            _unitOfWork = unitOfWork;
+            _reportService = reportService;
             _logger = logger;
             _mapper = mapper;
         }
@@ -33,7 +34,7 @@ namespace DonationSite.Endpoint.API.Controllers
         {
             try
             {
-                var reportData = await _unitOfWork.ReportRepository.GetDonatioSiteReport(siteId,take,skip);
+                var reportData = await _reportService.GetDonationSiteReport(siteId,take,skip);
                 var result = _mapper.Map<List<DonateReportDTO>>(reportData);
                 return Ok(result);
             }
@@ -51,7 +52,7 @@ namespace DonationSite.Endpoint.API.Controllers
         {
             try
             {
-                var totalCount = await _unitOfWork.ReportRepository.GetDonatioSiteReportTotalCount(siteId);
+                var totalCount = await _reportService.GetDonatioSiteReportTotalCount(siteId);
                 return Ok(totalCount);
             }
             catch (Exception ex)
@@ -68,7 +69,7 @@ namespace DonationSite.Endpoint.API.Controllers
         {
             try
             {
-                var reportData = await _unitOfWork.ReportRepository.GetDonationReport(take,skip);
+                var reportData = await _reportService.GetDonationReport(take,skip);
                 return Ok(reportData);
             }
             catch (Exception ex)
@@ -85,7 +86,7 @@ namespace DonationSite.Endpoint.API.Controllers
         {
             try
             {
-                var totalCount = await _unitOfWork.ReportRepository.GetDonationReportTotalCount();
+                var totalCount = await _reportService.GetDonationReportTotalCount();
                 return Ok(totalCount);
             }
             catch (Exception ex)

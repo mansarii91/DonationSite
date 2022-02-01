@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DonationSite.Core.Contracts;
+using DonationSite.Core.Contracts.Site;
 using DonationSite.Core.Entities.Site;
 using Mapster;
 using Microsoft.AspNetCore.Http;
@@ -16,13 +17,13 @@ namespace DonationSite.Endpoint.API.Controllers
     [ApiController]
     public class SiteController : ControllerBase
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly ISiteService _unitOfWork;
         private readonly ILogger _logger;
         private readonly IMapper _mapper;
 
-        public SiteController(IUnitOfWork unitOfWork, ILogger<SiteController> logger, IMapper mapper)
+        public SiteController(ISiteService siteService, ILogger<SiteController> logger, IMapper mapper)
         {
-            _unitOfWork = unitOfWork;
+            _unitOfWork = siteService;
             _logger = logger;
             _mapper = mapper;
         }
@@ -34,7 +35,7 @@ namespace DonationSite.Endpoint.API.Controllers
         {
             try
             {
-                var totalCount = _unitOfWork.SiteRepository.GetTotalCount();
+                var totalCount = _unitOfWork.GetTotalCount();
                 return Ok(totalCount);
             }
             catch (Exception ex)
@@ -51,7 +52,7 @@ namespace DonationSite.Endpoint.API.Controllers
         {
             try
             {
-                var allList = await _unitOfWork.SiteRepository.GetAllList(take,skip);
+                var allList = await _unitOfWork.GetAllList(take,skip);
                 var result = _mapper.Map<List<SiteDTO>>(allList);
                 return Ok(result);
             }
@@ -69,7 +70,7 @@ namespace DonationSite.Endpoint.API.Controllers
         {
             try
             {
-                var data = await _unitOfWork.SiteRepository.GetById(id);
+                var data = await _unitOfWork.GetById(id);
                 var result = _mapper.Map<SiteDTO>(data);
                 return Ok(result);
             }
@@ -87,7 +88,7 @@ namespace DonationSite.Endpoint.API.Controllers
         {
             try
             {
-                var result = await _unitOfWork.SiteRepository.Delete(id);
+                var result = await _unitOfWork.Delete(id);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -111,7 +112,7 @@ namespace DonationSite.Endpoint.API.Controllers
                     return BadRequest(ModelState);
                 }
 
-                var result = await _unitOfWork.SiteRepository.Add(_mapper.Map<Site>(model));
+                var result = await _unitOfWork.Add(_mapper.Map<Site>(model));
                 return Ok(result);
             }
             catch (Exception ex)
@@ -134,7 +135,7 @@ namespace DonationSite.Endpoint.API.Controllers
                     return BadRequest(ModelState);
                 }
 
-                var result = await _unitOfWork.SiteRepository.Update(_mapper.Map<Site>(model));
+                var result = await _unitOfWork.Update(_mapper.Map<Site>(model));
                 return Ok(result);
             }
             catch (Exception ex)

@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>c4e0d007-415b-4071-805a-37b310e0eb98</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,7 +15,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="bin\Release\net5.0\appsettings.Development.json" />
+    <Content Include="bin\Release\net5.0\appsettings.json" />
+    <Content Include="bin\Release\net5.0\DonationSite.Endpoint.API.deps.json" />
+    <Content Include="bin\Release\net5.0\DonationSite.Endpoint.API.runtimeconfig.dev.json" />
+    <Content Include="bin\Release\net5.0\DonationSite.Endpoint.API.runtimeconfig.json" />
+    <Content Include="bin\Release\net5.0\publish\appsettings.Development.json" />
+    <Content Include="bin\Release\net5.0\publish\appsettings.json" />
+    <Content Include="bin\Release\net5.0\publish\DonationSite.Endpoint.API.deps.json" />
+    <Content Include="bin\Release\net5.0\publish\DonationSite.Endpoint.API.runtimeconfig.json" />
     <Content Include="ClientApp\DonationSite\angular.json" />
+    <Content Include="ClientApp\DonationSite\dist\donation-site\3rdpartylicenses.txt" />
+    <Content Include="ClientApp\DonationSite\dist\donation-site\favicon.ico" />
+    <Content Include="ClientApp\DonationSite\dist\donation-site\index.html" />
+    <Content Include="ClientApp\DonationSite\dist\donation-site\styles.ef46db3751d8e999.css" />
     <Content Include="ClientApp\DonationSite\package-lock.json" />
     <Content Include="ClientApp\DonationSite\package.json" />
     <Content Include="ClientApp\DonationSite\src\app\add-site\add-site.component.css" />
@@ -38,9 +54,246 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="bin\Release\net5.0\AutoMapper.dll" />
+    <None Include="bin\Release\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll" />
+    <None Include="bin\Release\net5.0\DonationSite.Core.Contracts.dll" />
+    <None Include="bin\Release\net5.0\DonationSite.Core.Contracts.pdb" />
+    <None Include="bin\Release\net5.0\DonationSite.Core.Entities.dll" />
+    <None Include="bin\Release\net5.0\DonationSite.Core.Entities.pdb" />
+    <None Include="bin\Release\net5.0\DonationSite.Core.Services.dll" />
+    <None Include="bin\Release\net5.0\DonationSite.Core.Services.pdb" />
+    <None Include="bin\Release\net5.0\DonationSite.DataAccess.EF.dll" />
+    <None Include="bin\Release\net5.0\DonationSite.DataAccess.EF.pdb" />
+    <None Include="bin\Release\net5.0\DonationSite.Endpoint.API.dll" />
+    <None Include="bin\Release\net5.0\DonationSite.Endpoint.API.exe" />
+    <None Include="bin\Release\net5.0\DonationSite.Endpoint.API.pdb" />
+    <None Include="bin\Release\net5.0\Humanizer.dll" />
+    <None Include="bin\Release\net5.0\Mapster.Core.dll" />
+    <None Include="bin\Release\net5.0\Mapster.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.Data.SqlClient.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.DotNet.PlatformAbstractions.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.EntityFrameworkCore.Design.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.EntityFrameworkCore.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.EntityFrameworkCore.Relational.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.Extensions.Configuration.Abstractions.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.Extensions.Configuration.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.Extensions.Configuration.FileExtensions.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.Extensions.Configuration.Json.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.Extensions.DependencyInjection.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.Extensions.DependencyModel.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.Extensions.FileProviders.Abstractions.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.Extensions.FileProviders.Physical.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.Extensions.FileSystemGlobbing.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.Extensions.Options.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.Extensions.Primitives.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.Identity.Client.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.IdentityModel.Logging.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.IdentityModel.Protocols.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.IdentityModel.Tokens.dll" />
+    <None Include="bin\Release\net5.0\Microsoft.OpenApi.dll" />
+    <None Include="bin\Release\net5.0\Newtonsoft.Json.dll" />
+    <None Include="bin\Release\net5.0\publish\AutoMapper.dll" />
+    <None Include="bin\Release\net5.0\publish\AutoMapper.Extensions.Microsoft.DependencyInjection.dll" />
+    <None Include="bin\Release\net5.0\publish\DonationSite.Core.Contracts.dll" />
+    <None Include="bin\Release\net5.0\publish\DonationSite.Core.Contracts.pdb" />
+    <None Include="bin\Release\net5.0\publish\DonationSite.Core.Entities.dll" />
+    <None Include="bin\Release\net5.0\publish\DonationSite.Core.Entities.pdb" />
+    <None Include="bin\Release\net5.0\publish\DonationSite.Core.Services.dll" />
+    <None Include="bin\Release\net5.0\publish\DonationSite.Core.Services.pdb" />
+    <None Include="bin\Release\net5.0\publish\DonationSite.DataAccess.EF.dll" />
+    <None Include="bin\Release\net5.0\publish\DonationSite.DataAccess.EF.pdb" />
+    <None Include="bin\Release\net5.0\publish\DonationSite.Endpoint.API.dll" />
+    <None Include="bin\Release\net5.0\publish\DonationSite.Endpoint.API.exe" />
+    <None Include="bin\Release\net5.0\publish\DonationSite.Endpoint.API.pdb" />
+    <None Include="bin\Release\net5.0\publish\Mapster.Core.dll" />
+    <None Include="bin\Release\net5.0\publish\Mapster.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.Data.SqlClient.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.DotNet.PlatformAbstractions.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.EntityFrameworkCore.Abstractions.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.EntityFrameworkCore.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.EntityFrameworkCore.Relational.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.EntityFrameworkCore.SqlServer.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.Extensions.Configuration.Abstractions.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.Extensions.Configuration.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.Extensions.Configuration.FileExtensions.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.Extensions.Configuration.Json.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.Extensions.DependencyInjection.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.Extensions.DependencyModel.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.Extensions.FileProviders.Abstractions.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.Extensions.FileProviders.Physical.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.Extensions.FileSystemGlobbing.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.Extensions.Options.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.Extensions.Primitives.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.Identity.Client.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.IdentityModel.JsonWebTokens.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.IdentityModel.Logging.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.IdentityModel.Protocols.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.IdentityModel.Tokens.dll" />
+    <None Include="bin\Release\net5.0\publish\Microsoft.OpenApi.dll" />
+    <None Include="bin\Release\net5.0\publish\Newtonsoft.Json.dll" />
+    <None Include="bin\Release\net5.0\publish\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll" />
+    <None Include="bin\Release\net5.0\publish\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll" />
+    <None Include="bin\Release\net5.0\publish\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb" />
+    <None Include="bin\Release\net5.0\publish\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll" />
+    <None Include="bin\Release\net5.0\publish\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb" />
+    <None Include="bin\Release\net5.0\publish\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll" />
+    <None Include="bin\Release\net5.0\publish\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb" />
+    <None Include="bin\Release\net5.0\publish\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll" />
+    <None Include="bin\Release\net5.0\publish\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb" />
+    <None Include="bin\Release\net5.0\publish\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll" />
+    <None Include="bin\Release\net5.0\publish\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll" />
+    <None Include="bin\Release\net5.0\publish\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll" />
+    <None Include="bin\Release\net5.0\publish\Serilog.AspNetCore.dll" />
+    <None Include="bin\Release\net5.0\publish\Serilog.dll" />
+    <None Include="bin\Release\net5.0\publish\Serilog.Extensions.Hosting.dll" />
+    <None Include="bin\Release\net5.0\publish\Serilog.Extensions.Logging.dll" />
+    <None Include="bin\Release\net5.0\publish\Serilog.Formatting.Compact.dll" />
+    <None Include="bin\Release\net5.0\publish\Serilog.Settings.Configuration.dll" />
+    <None Include="bin\Release\net5.0\publish\Serilog.Sinks.Console.dll" />
+    <None Include="bin\Release\net5.0\publish\Serilog.Sinks.Debug.dll" />
+    <None Include="bin\Release\net5.0\publish\Serilog.Sinks.File.dll" />
+    <None Include="bin\Release\net5.0\publish\Swashbuckle.AspNetCore.Swagger.dll" />
+    <None Include="bin\Release\net5.0\publish\Swashbuckle.AspNetCore.SwaggerGen.dll" />
+    <None Include="bin\Release\net5.0\publish\Swashbuckle.AspNetCore.SwaggerUI.dll" />
+    <None Include="bin\Release\net5.0\publish\System.Configuration.ConfigurationManager.dll" />
+    <None Include="bin\Release\net5.0\publish\System.Diagnostics.DiagnosticSource.dll" />
+    <None Include="bin\Release\net5.0\publish\System.IdentityModel.Tokens.Jwt.dll" />
+    <None Include="bin\Release\net5.0\publish\System.Runtime.Caching.dll" />
+    <None Include="bin\Release\net5.0\publish\System.Runtime.CompilerServices.Unsafe.dll" />
+    <None Include="bin\Release\net5.0\publish\System.Security.Cryptography.ProtectedData.dll" />
+    <None Include="bin\Release\net5.0\publish\System.Text.Encodings.Web.dll" />
+    <None Include="bin\Release\net5.0\publish\System.Text.Json.dll" />
+    <None Include="bin\Release\net5.0\publish\web.config" />
+    <None Include="bin\Release\net5.0\ref\DonationSite.Endpoint.API.dll" />
+    <None Include="bin\Release\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll" />
+    <None Include="bin\Release\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll" />
+    <None Include="bin\Release\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb" />
+    <None Include="bin\Release\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll" />
+    <None Include="bin\Release\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb" />
+    <None Include="bin\Release\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll" />
+    <None Include="bin\Release\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb" />
+    <None Include="bin\Release\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll" />
+    <None Include="bin\Release\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb" />
+    <None Include="bin\Release\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll" />
+    <None Include="bin\Release\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll" />
+    <None Include="bin\Release\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll" />
+    <None Include="bin\Release\net5.0\Serilog.AspNetCore.dll" />
+    <None Include="bin\Release\net5.0\Serilog.dll" />
+    <None Include="bin\Release\net5.0\Serilog.Extensions.Hosting.dll" />
+    <None Include="bin\Release\net5.0\Serilog.Extensions.Logging.dll" />
+    <None Include="bin\Release\net5.0\Serilog.Formatting.Compact.dll" />
+    <None Include="bin\Release\net5.0\Serilog.Settings.Configuration.dll" />
+    <None Include="bin\Release\net5.0\Serilog.Sinks.Console.dll" />
+    <None Include="bin\Release\net5.0\Serilog.Sinks.Debug.dll" />
+    <None Include="bin\Release\net5.0\Serilog.Sinks.File.dll" />
+    <None Include="bin\Release\net5.0\Swashbuckle.AspNetCore.Swagger.dll" />
+    <None Include="bin\Release\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll" />
+    <None Include="bin\Release\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll" />
+    <None Include="bin\Release\net5.0\System.Configuration.ConfigurationManager.dll" />
+    <None Include="bin\Release\net5.0\System.Diagnostics.DiagnosticSource.dll" />
+    <None Include="bin\Release\net5.0\System.IdentityModel.Tokens.Jwt.dll" />
+    <None Include="bin\Release\net5.0\System.Runtime.Caching.dll" />
+    <None Include="bin\Release\net5.0\System.Runtime.CompilerServices.Unsafe.dll" />
+    <None Include="bin\Release\net5.0\System.Security.Cryptography.ProtectedData.dll" />
+    <None Include="bin\Release\net5.0\System.Text.Encodings.Web.dll" />
+    <None Include="bin\Release\net5.0\System.Text.Json.dll" />
     <None Include="ClientApp\DonationSite\.browserslistrc" />
     <None Include="ClientApp\DonationSite\.editorconfig" />
     <None Include="ClientApp\DonationSite\.gitignore" />
+    <None Include="ClientApp\DonationSite\dist\donation-site\main.d2217877b3ee8622.js" />
+    <None Include="ClientApp\DonationSite\dist\donation-site\polyfills.1f1328f82561c1dd.js" />
+    <None Include="ClientApp\DonationSite\dist\donation-site\runtime.8db9ac91df674b53.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\add-site\add-site.component.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\add-site\add-site.component.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\add-site\add-site.component.spec.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\add-site\add-site.component.spec.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\app-routing.module.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\app-routing.module.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\app.component.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\app.component.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\app.component.spec.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\app.component.spec.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\app.module.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\app.module.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\donate\donate.component.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\donate\donate.component.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\donate\donate.component.spec.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\donate\donate.component.spec.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\navbar\navbar.component.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\navbar\navbar.component.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\navbar\navbar.component.spec.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\navbar\navbar.component.spec.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\report-site-donation\report-site-donation.component.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\report-site-donation\report-site-donation.component.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\report-site-donation\report-site-donation.component.spec.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\report-site-donation\report-site-donation.component.spec.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\report-site\report-site.component.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\report-site\report-site.component.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\report-site\report-site.component.spec.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\report-site\report-site.component.spec.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\site\site.component.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\site\site.component.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\site\site.component.spec.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\site\site.component.spec.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\update-site\update-site.component.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\update-site\update-site.component.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\update-site\update-site.component.spec.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\app\update-site\update-site.component.spec.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\const.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\const.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\environments\environment.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\environments\environment.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\environments\environment.prod.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\environments\environment.prod.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\global_const.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\global_const.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\interfaces\baseServiceParam.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\interfaces\baseServiceParam.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\interfaces\donate.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\interfaces\donate.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\interfaces\reportDonator.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\interfaces\reportDonator.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\interfaces\reportSite.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\interfaces\reportSite.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\interfaces\serviceParam.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\interfaces\serviceParam.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\interfaces\sharedData.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\interfaces\sharedData.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\interfaces\site.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\interfaces\site.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\main.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\main.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\models\createSite.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\models\createSite.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\models\donate.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\models\donate.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\models\reportSiteServiceModel.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\models\reportSiteServiceModel.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\models\serviceParams.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\models\serviceParams.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\models\sharedData.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\models\sharedData.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\models\site.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\models\site.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\polyfills.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\polyfills.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\services\donate.service.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\services\donate.service.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\services\report.service.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\services\report.service.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\services\shareData.service.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\services\shareData.service.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\services\site.service.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\services\site.service.js.map" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\test.js" />
+    <None Include="ClientApp\DonationSite\dist\out-tsc\test.js.map" />
     <None Include="ClientApp\DonationSite\karma.conf.js" />
     <None Include="ClientApp\DonationSite\README.md" />
     <None Include="ClientApp\DonationSite\src\assets\.gitkeep" />
@@ -63,12 +316,14 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
     <PackageReference Include="Serilog.AspNetCore" Version="4.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DonationSite.Core.Contracts\DonationSite.Core.Contracts.csproj" />
+    <ProjectReference Include="..\DonationSite.Core.Services\DonationSite.Core.Services.csproj" />
     <ProjectReference Include="..\DonationSite.DataAccess.EF\DonationSite.DataAccess.EF.csproj" />
   </ItemGroup>
 

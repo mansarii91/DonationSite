@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DonationSite.Core.Contracts;
+using DonationSite.Core.Contracts.Donate;
 using DonationSite.Core.Entities.Donate;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,13 +14,13 @@ namespace DonationSite.Endpoint.API.Controllers
     [ApiController]
     public class DonateController : ControllerBase
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IDonateService _donateService;
         private readonly ILogger _logger;
         private readonly IMapper _mapper;
 
-        public DonateController(IUnitOfWork unitOfWork, ILogger<SiteController> logger, IMapper mapper)
+        public DonateController(IDonateService donateService, ILogger<SiteController> logger, IMapper mapper)
         {
-            _unitOfWork = unitOfWork;
+            _donateService = donateService;
             _logger = logger;
             _mapper = mapper;
         }
@@ -38,7 +39,7 @@ namespace DonationSite.Endpoint.API.Controllers
                     return BadRequest(ModelState);
                 }
                 var mapped = _mapper.Map<Donate>(model);
-                var result = await _unitOfWork.DonateRepository.SubmitDonate(mapped);
+                var result = await _donateService.SubmitDonate(mapped);
                 return Ok(result);
             }
             catch (Exception ex)

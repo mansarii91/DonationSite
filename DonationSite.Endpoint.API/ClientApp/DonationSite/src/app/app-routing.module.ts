@@ -2,7 +2,6 @@ import { UpdateSiteComponent } from './update-site/update-site.component';
 import { BrowserModule } from '@angular/platform-browser';
 // **************************************************
 import { NgModule } from '@angular/core';
-
 import { Routes } from '@angular/router';
 import { RouterModule } from '@angular/router';
 // **************************************************

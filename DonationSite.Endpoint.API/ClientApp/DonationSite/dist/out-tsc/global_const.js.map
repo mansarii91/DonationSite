@@ -1,0 +1,1 @@
+{"version":3,"file":"global_const.js","sourceRoot":"","sources":["../../src/global_const.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,WAAW,EAAE,MAAM,sBAAsB,CAAC;AAEnD,MAAM,OAAO,WAAW;;AACR,yBAAa,GAAG,iCAAiC,CAAC;AAClD,2BAAe,GAAG,mCAAmC,CAAC;AACtD,2BAAe,GAAG,mCAAmC,CAAC;AACtD,uBAAW,GAAG;IAC1B,OAAO,EAAE,IAAI,WAAW,CAAC,EAAE,cAAc,EAAE,kBAAkB,EAAE,CAAC;CACjE,CAAC"}

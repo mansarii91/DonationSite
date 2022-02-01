@@ -1,4 +1,8 @@
 using DonationSite.Core.Contracts;
+using DonationSite.Core.Contracts.Donate;
+using DonationSite.Core.Contracts.Report;
+using DonationSite.Core.Contracts.Site;
+using DonationSite.Core.Services;
 using DonationSite.DataAccess.EF;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,6 +32,9 @@ namespace DonationSite.Endpoint.API
             option.UseSqlServer(Configuration.GetConnectionString("sqlConnection")));
 
             services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<ISiteService, SiteService>();
+            services.AddTransient<IDonateService, DonateService>();
+            services.AddTransient<IReportService, ReportService>();
             services.AddAutoMapper(typeof(AutoMapperConfig));
 
             #endregion
