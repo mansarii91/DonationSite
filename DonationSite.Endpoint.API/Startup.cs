@@ -27,9 +27,9 @@ namespace DonationSite.Endpoint.API
         public void ConfigureServices(IServiceCollection services)
         {
             #region Dependencies
-            
+
             services.AddDbContext<DonationSiteDataContext>(option =>
-            option.UseSqlServer(Configuration.GetConnectionString("sqlConnection")));
+            option.UseSqlServer($"Data Source=mssqlserver,1433;Initial Catalog=DonationSite;Persist Security Info=True;User ID=SA;Password=P@ssword1992"));
 
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<ISiteService, SiteService>();

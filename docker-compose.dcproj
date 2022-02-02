@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>5af6423b-13df-4304-a879-e5f420499eed</ProjectGuid>
+    <ProjectGuid>80d4c70d-1e5f-4835-95f8-9b6c6b6dd233</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
     <DockerServiceName>donationsite.endpoint.api</DockerServiceName>

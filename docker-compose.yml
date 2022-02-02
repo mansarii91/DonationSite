@@ -1,25 +1,23 @@
-#version: '3.4'
-
-#services:
-#  donationsite.endpoint.api:
-#    image: ${DOCKER_REGISTRY-}donationsiteendpointapi
-#    build:
-#      context: .
-#      dockerfile: DonationSite.Endpoint.API/Dockerfile
-
-
-version: '3'
+version: "3.4"
 
 services:
-	mssqlserver: 
-		image: mcr.microsoft.com/mssql/server:2017-latest
-		environment:
-			ACCEPT_EULA: "Y"
-			SA_PASSWORD: "P@ssword1992"
-			MSSQL_PID: Express
-		ports:
-			- "1433:1433"
-	donation-api:
-		build: .
-	ports:
-		- 8080:80
+  donationsite.endpoint.api:
+    image: ${DOCKER_REGISTRY-}donationsiteendpointapi
+    build:
+      context: .
+      dockerfile: DonationSite.Endpoint.API/Dockerfile
+  mssqlserver:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "P@ssword1992"
+      MSSQL_PID: Express
+    ports:
+      - "1433:1433"
+  clientApp:
+    image: node:latest
+    build:
+      context: ./DonationSite.Endpoint.API/ClientApp/DonationSite
+      dockerfile: Dockerfile
+    ports:
+      - "200:200"
