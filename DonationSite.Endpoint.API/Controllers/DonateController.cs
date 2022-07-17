@@ -18,7 +18,7 @@ namespace DonationSite.Endpoint.API.Controllers
         private readonly ILogger _logger;
         private readonly IMapper _mapper;
 
-        public DonateController(IDonateService donateService, ILogger<SiteController> logger, IMapper mapper)
+        public DonateController(IDonateService donateService, ILogger<DonateController> logger, IMapper mapper)
         {
             _donateService = donateService;
             _logger = logger;

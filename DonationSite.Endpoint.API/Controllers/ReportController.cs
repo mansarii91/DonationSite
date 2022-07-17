@@ -20,7 +20,7 @@ namespace DonationSite.Endpoint.API.Controllers
         private readonly ILogger _logger;
         private readonly IMapper _mapper;
 
-        public ReportController(IReportService reportService, ILogger<SiteController> logger, IMapper mapper)
+        public ReportController(IReportService reportService, ILogger<ReportController> logger, IMapper mapper)
         {
             _reportService = reportService;
             _logger = logger;

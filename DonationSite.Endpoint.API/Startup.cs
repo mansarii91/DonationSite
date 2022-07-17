@@ -29,7 +29,7 @@ namespace DonationSite.Endpoint.API
             #region Dependencies
 
             services.AddDbContext<DonationSiteDataContext>(option =>
-            option.UseSqlServer($"Data Source=mssqlserver,1433;Initial Catalog=DonationSite;Persist Security Info=True;User ID=SA;Password=P@ssword1992"));
+            option.UseSqlServer($"Data Source=.;Initial Catalog=DonationSite;Integrated Security=True"));
 
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<ISiteService, SiteService>();

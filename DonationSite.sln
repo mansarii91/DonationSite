@@ -23,6 +23,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DonationSite.Endpoint.API",
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{80D4C70D-1E5F-4835-95F8-9B6C6B6DD233}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{41F096A1-191C-4D5C-95A5-726DC0382022}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonationSite.Test", "..\DonationSite.Test\DonationSite.Test.csproj", "{0BDA4C5C-2A22-4262-BDD4-E84848C02FC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +57,10 @@ Global
 		{80D4C70D-1E5F-4835-95F8-9B6C6B6DD233}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80D4C70D-1E5F-4835-95F8-9B6C6B6DD233}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80D4C70D-1E5F-4835-95F8-9B6C6B6DD233}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BDA4C5C-2A22-4262-BDD4-E84848C02FC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BDA4C5C-2A22-4262-BDD4-E84848C02FC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BDA4C5C-2A22-4262-BDD4-E84848C02FC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BDA4C5C-2A22-4262-BDD4-E84848C02FC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +74,7 @@ Global
 		{F9C3F057-5298-44A7-87EE-38930689F2A8} = {2329D730-2E56-4CC5-9594-BCEA747DE5B0}
 		{3C1CF4DC-C917-4697-B41E-BDE8676A4AB1} = {5424E7CB-8F21-42A0-83CF-B1F2EF18D627}
 		{38973CF5-43BB-4D44-981A-221A17F5A758} = {A768414D-130B-4339-997A-C38A1CC6BE34}
+		{0BDA4C5C-2A22-4262-BDD4-E84848C02FC6} = {41F096A1-191C-4D5C-95A5-726DC0382022}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {29A3DFAF-C677-46AA-A42A-776E7AB6F866}
