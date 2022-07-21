@@ -19,7 +19,7 @@ namespace DonationSite.DataAccess.EF
         {
             #region Insert Initial Test Data 
 
-            #region Mock Site
+            #region Site
 
             modelBuilder.Entity<Site>().HasData(
             new Site()
@@ -96,7 +96,7 @@ namespace DonationSite.DataAccess.EF
 
             #endregion
 
-            #region Mock Donator
+            #region Donator
 
             modelBuilder.Entity<Donate>().HasData(
              new Donate() { DonateID = 1, DonatorName = "Feredrick B ", Value = 20, FKSiteID = 1 },

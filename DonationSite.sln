@@ -25,7 +25,7 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{41F096A1-191C-4D5C-95A5-726DC0382022}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonationSite.Test", "..\DonationSite.Test\DonationSite.Test.csproj", "{0BDA4C5C-2A22-4262-BDD4-E84848C02FC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DonationSite.Test", "..\DonationSite.Test\DonationSite.Test.csproj", "{0BDA4C5C-2A22-4262-BDD4-E84848C02FC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
